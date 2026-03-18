@@ -13,36 +13,7 @@ const exploreItems = [
     id: 1,
     title: 'COSMOS',
     image: '/cosmos wheel image2.png',
-    description: 'This emblem is an homage to the ancient Mandala, a geometric blueprint used for spiritual and architectural alignment, representing the cosmos and the principle of perpetual harmony. Its concentric rings and radial sunburst evoke seals from the lost empires of the subcontinent, speaking to a history that stretches beyond memory. It signifies that Garthapuri is not fleeting; it is anchored in the eternal rhythms of excellence. This circular covenant assures that the profound standard of quality and the auspicious return to tradition will never cease.',
-    color: '#8d3c02'
-  },
-  {
-    id: 2,
-    title: 'VIBRANCY',
-    image: '/vibrancy image 3.png',
-    description: 'This Verdant Companion visual element connects us to the artistic and courtly traditions of historical painting, where elements of flora and charming wildlife often symbolized the sweetness of life, eloquence, and the richness of storytelling. This image represents the vibrancy, life, and exotic charm that characterized the courts and cultural centers of ancient India. It serves as a touch of lively detail, promising that the sensory experiences and moments shared at Garthapuri will be colorful, engaging, and worthy of retelling, a bright, vital thread woven into the tapestry of our history.',
-    color: '#d4af37'
-  },
-  {
-    id: 3,
-    title: 'ESSENCE',
-    image: '/essence image5.png',
-    description: 'The depiction of Nandi draws on the historical understanding of the bull as a prime symbol of fertility, agrarian wealth, and quiet, immense power. Reclining, the bull is in a state of meditative repose, a posture that signifies readiness without restlessness. It evokes the profound sense of calm and focused dedication found within ancient sacred spaces. For Garthapuri, Nandi is the Silent Witness to our authenticity, guaranteeing that every ingredient and every service act is delivered with the devotion and unhurried quality of a time long past.',
-    color: '#8d3c02'
-  },
-  {
-    id: 4,
-    title: 'PERMANENCE',
-    image: '/permanence image4.png',
-    description: 'Our pillar is a tribute to the monumental structures erected by ancient royalty specifically drawing inspiration from the pillars of Ashoka, which were inscribed with decrees of virtue and justice. The heavily detailed carvings are reminiscent of the Dravidian stone artistry found in temples that have withstood millennia. This element signifies that the brand is built not on trend, but on unshakeable moral and aesthetic solidity. It imbues Garthapuri with a sense of monumental heritage, promising a dining experience as reliable and enduring as the history etched in its stone.',
-    color: '#d4af37'
-  },
-  {
-    id: 5,
-    title: 'THRESHOLD',
-    image: '/threshold image6.png',
-    description: 'The elephant, set beneath a highly ornamented arch, connects directly to the ancient Gajalakshmi tradition, where elephants symbolize the rain, clouds, and power that bring wealth to the Goddess of Fortune. The arch is a definitive Torana, marking the transition from the mundane street to the auspicious interior. This visual acts as a historical demarcation, stating that when one steps into Garthapuri, they are entering a space where blessings are conferred and abundance is served. The Graced Sentinel is your vintage assurance of majesty, prosperity, and an unparalleled traditional welcome.',
-    color: '#8d3c02'
+    description: 'This emblem is an homage to the ancient Mandala, a geometric blueprint used for spiritual and architectural alignment, representing the cosmos and the principle of perpetual harmony. Its concentric rings and radial sunburst evoke seals from the lost empires of the subcontinent, speaking to a history that stretches beyond memory. It signifies that Garthapuri is not fleeting; it is anchored in the eternal rhythms of excellence. This circular covenant assures that the profound standard of quality and the auspicious return to tradition will never cease.'
   }
 ]
 
@@ -184,76 +155,45 @@ export default function ExplorePage() {
       </div>
 
       {/* Main Content */}
-      <div ref={containerRef} className="relative z-10 px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-10 flex-1">
-        <div className="max-w-7xl mx-auto">
-          {/* Grid Layout - Responsive */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
-            {exploreItems.map((item, index) => (
-              <div
-                key={item.id}
-                ref={(el) => {
-                  itemRefs.current[index] = el
-                }}
-                className="group cursor-pointer h-full"
-              >
-                {/* Card Container */}
-                <div className="bg-white/80 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-white/60 h-full flex flex-col">
-                  {/* Image Container - Fixed Height */}
-                  <div className="relative h-40 sm:h-48 md:h-56 w-full overflow-hidden bg-gradient-to-br from-[#ded7cc] to-[#f5f1eb]">
-                    <div className="absolute inset-0 flex items-center justify-center p-4">
-                      <Image
-                        src={item.image}
-                        alt={item.title}
-                        width={300}
-                        height={300}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                      />
-                    </div>
-                    
-                    {/* Color Accent Bar */}
-                    <div 
-                      className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#8d3c02] to-transparent opacity-60"
-                    />
-                  </div>
-
-                  {/* Content Container - Flexible */}
-                  <div className="p-4 sm:p-5 flex-1 flex flex-col">
-                    {/* Title */}
-                    <h2 className="text-base sm:text-lg md:text-xl font-['Playfair_Display'] font-bold text-[#8d3c02] mb-2 tracking-wide">
-                      {item.title}
-                    </h2>
-
-                    {/* Description - Proper overflow handling */}
-                    <p className="text-xs sm:text-sm text-[#6b5d4f] leading-relaxed flex-1 overflow-hidden">
-                      {item.description.substring(0, 150)}...
-                    </p>
-
-                    {/* Learn More Link - Always at bottom */}
-                    <div className="mt-3 sm:mt-4 pt-2 border-t border-[#8d3c02]/10">
-                      <button className="inline-flex items-center text-[#8d3c02] font-semibold text-xs hover:gap-3 transition-all duration-300 group/btn">
-                        <span>Discover More</span>
-                        <span className="ml-2 group-hover/btn:translate-x-1 transition-transform">→</span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
+      <div ref={containerRef} className="relative z-10 w-full">
+        <div className="w-full px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+          {/* Raw Display */}
+          {exploreItems.map((item) => (
+            <div 
+              key={item.id}
+              style={{ display: 'flex', flexDirection: 'row', gap: '2rem', alignItems: 'center', flexWrap: 'wrap' }}
+            >
+              {/* Image - Raw */}
+              <div style={{ flex: '0 1 35%', minWidth: '200px' }}>
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  width={400}
+                  height={400}
+                  style={{ width: '100%', height: 'auto', display: 'block' }}
+                />
               </div>
-            ))}
-          </div>
 
-          {/* Bottom Decorative Section */}
-          <div className="mt-16 sm:mt-20 lg:mt-24 text-center">
-            <div className="inline-block px-6 sm:px-8 py-4 sm:py-6 bg-white/60 backdrop-blur-sm rounded-full border border-white/80">
-              <p className="text-[#8d3c02] font-['Playfair_Display'] text-lg sm:text-xl font-semibold tracking-wide">
-                Each element tells a story of heritage and tradition
-              </p>
+              {/* Content - Raw */}
+              <div style={{ flex: '1 1 55%', minWidth: '250px' }}>
+                <h2 style={{ fontSize: 'clamp(1.5rem, 5vw, 2.5rem)', fontFamily: 'Playfair Display, serif', fontWeight: 'bold', color: '#8d3c02', marginBottom: '1rem' }}>
+                  {item.title}
+                </h2>
+                <p style={{ fontSize: 'clamp(0.9rem, 2vw, 1.1rem)', color: '#6b5d4f', lineHeight: '1.6' }}>
+                  {item.description}
+                </p>
+              </div>
             </div>
+          ))}
+
+          {/* Bottom Text */}
+          <div style={{ marginTop: '3rem', textAlign: 'center' }}>
+            <p style={{ fontSize: 'clamp(1rem, 3vw, 1.3rem)', fontFamily: 'Playfair Display, serif', fontWeight: '600', color: '#8d3c02', letterSpacing: '0.05em' }}>
+              Each element tells a story of heritage and tradition
+            </p>
           </div>
         </div>
       </div>
-
-      {/* Decorative Bottom Border */}
-      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#8d3c02] via-[#d4af37] to-[#8d3c02] opacity-30" />
     </div>
   )
 }

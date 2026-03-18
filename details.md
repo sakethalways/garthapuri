@@ -92,3 +92,19 @@ interior. This visual acts as a historical demarcation, stating that when one st
 into Garthapuri, they are entering a space where blessings are conferred and
 abundance is served. The Graced Sentinel is your vintage assurance of majesty,
 prosperity, and an unparalleled traditional welcome.
+
+
+colour codes :
+
+| Colour name (approx) | RGB         | Hex code 
+| -------------------- | ----------- | -------- 
+| White                | 255,255,255 | #FFFFFF 
+| Orange body          | 211,123,49  | #D37B31 
+| Light green cloth    | 172,197,44  | #ACC52C  
+| Light grey/white     | 246,246,246 | #F6F6F6  
+| Red                  | 207,32,47   | #CF202F 
+| Darker orange shade  | 213,122,49  | #D57A31 
+| Darker orange shade  | 211,124,47  | #D37C2F  
+| Black (outline/eye)  | 1,1,1       | #010101 
+| Light grey/white     | 245,245,245 | #F5F5F5  
+| Darker orange shade  | 210,124,49  | #D27C31  

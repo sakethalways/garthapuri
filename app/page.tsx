@@ -89,10 +89,19 @@ export default function Home() {
         </section>
 
       {/* Menu Highlights Section */}
-      <section className="bg-gradient-to-b from-[#d4af37]/20 to-[#d4af37]/10 py-16 sm:py-20 md:py-24">
+      <section className="bg-gradient-to-b from-[#d4af37]/20 to-[#d4af37]/10 py-4 sm:py-6 md:py-8">
         <div className="w-full px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
-          <div className="text-center space-y-4 mb-12 sm:mb-16">
+          <div className="text-center space-y-3 mb-12 sm:mb-16">
+            <div className="flex justify-center mb-2">
+              <Image
+                src="/shefimage.png"
+                alt="Menu Highlights"
+                width={100}
+                height={100}
+                className="w-20 h-20 sm:w-28 sm:h-28 md:w-32 md:h-32 object-contain"
+              />
+            </div>
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-['Playfair_Display'] font-bold text-primary">
               <span className="inline-block">—</span>
               <span className="mx-4">Menu Highlights</span>
