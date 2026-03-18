@@ -1,0 +1,224 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Cultural color palette: #ded7cc (cream), #8d3c02 (terracotta), golden yellow, slight red */
+  --background: #ded7cc;
+  --foreground: #2c2416;
+  --card: #f5f1e8;
+  --card-foreground: #2c2416;
+  --popover: #ded7cc;
+  --popover-foreground: #2c2416;
+  --primary: #8d3c02;
+  --primary-foreground: #ded7cc;
+  --secondary: #d4af37;
+  --secondary-foreground: #2c2416;
+  --muted: #c9bfb0;
+  --muted-foreground: #5c4a3a;
+  --accent: #c84b31;
+  --accent-foreground: #f5f1e8;
+  --destructive: #c84b31;
+  --destructive-foreground: #f5f1e8;
+  --border: #c9bfb0;
+  --input: #f5f1e8;
+  --ring: #8d3c02;
+  --chart-1: #8d3c02;
+  --chart-2: #d4af37;
+  --chart-3: #c84b31;
+  --chart-4: #5c4a3a;
+  --chart-5: #2c2416;
+  --radius: 0.25rem;
+  --sidebar: #f5f1e8;
+  --sidebar-foreground: #2c2416;
+  --sidebar-primary: #8d3c02;
+  --sidebar-primary-foreground: #ded7cc;
+  --sidebar-accent: #d4af37;
+  --sidebar-accent-foreground: #2c2416;
+  --sidebar-border: #c9bfb0;
+  --sidebar-ring: #8d3c02;
+}
+
+.dark {
+  /* Dark mode cultural theme */
+  --background: #2c2416;
+  --foreground: #ded7cc;
+  --card: #3d3428;
+  --card-foreground: #ded7cc;
+  --popover: #2c2416;
+  --popover-foreground: #ded7cc;
+  --primary: #d4af37;
+  --primary-foreground: #2c2416;
+  --secondary: #8d3c02;
+  --secondary-foreground: #ded7cc;
+  --muted: #5c4a3a;
+  --muted-foreground: #a89584;
+  --accent: #e89463;
+  --accent-foreground: #2c2416;
+  --destructive: #e89463;
+  --destructive-foreground: #2c2416;
+  --border: #5c4a3a;
+  --input: #3d3428;
+  --ring: #d4af37;
+  --chart-1: #d4af37;
+  --chart-2: #8d3c02;
+  --chart-3: #e89463;
+  --chart-4: #a89584;
+  --chart-5: #ded7cc;
+  --sidebar: #3d3428;
+  --sidebar-foreground: #ded7cc;
+  --sidebar-primary: #d4af37;
+  --sidebar-primary-foreground: #2c2416;
+  --sidebar-accent: #8d3c02;
+  --sidebar-accent-foreground: #ded7cc;
+  --sidebar-border: #5c4a3a;
+  --sidebar-ring: #d4af37;
+}
+
+@theme inline {
+  --font-sans: 'Geist', 'Geist Fallback';
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --font-playfair: var(--font-playfair);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  @keyframes rotate-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .animate-rotate-slow {
+    animation: rotate-slow 20s linear infinite;
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out;
+  }
+
+  @keyframes scale-in {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.4s ease-out;
+  }
+
+  @keyframes cycle-logo-tel {
+    0% { opacity: 1; }
+    20% { opacity: 1; }
+    25% { opacity: 0; }
+    95% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  .animate-cycle-logo-tel {
+    animation: cycle-logo-tel 12s ease-in-out infinite;
+  }
+
+  @keyframes cycle-text-first {
+    0% { opacity: 0; }
+    20% { opacity: 0; }
+    25% { opacity: 1; }
+    45% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 0; }
+  }
+
+  .animate-cycle-text-first {
+    animation: cycle-text-first 12s ease-in-out infinite;
+  }
+
+  @keyframes cycle-logo-eng {
+    0% { opacity: 0; }
+    45% { opacity: 0; }
+    50% { opacity: 1; }
+    70% { opacity: 1; }
+    75% { opacity: 0; }
+    100% { opacity: 0; }
+  }
+
+  .animate-cycle-logo-eng {
+    animation: cycle-logo-eng 12s ease-in-out infinite;
+  }
+
+  @keyframes cycle-text-second {
+    0% { opacity: 0; }
+    70% { opacity: 0; }
+    75% { opacity: 1; }
+    92% { opacity: 1; }
+    97% { opacity: 0; }
+    100% { opacity: 0; }
+  }
+
+  .animate-cycle-text-second {
+    animation: cycle-text-second 12s ease-in-out infinite;
+  }
+}
