@@ -12,10 +12,10 @@ export function LayoutClient() {
     <>
       {/* Liquid Glass Header */}
       <nav className="sticky top-0 z-50 backdrop-blur-2xl bg-background/40 border-b border-secondary/20">
-        <div className="w-full px-4 sm:px-6 lg:px-8 py-2 sm:py-3">
+        <div className="w-full px-4 sm:px-6 lg:px-8 py-0.5 sm:py-1">
           <div className="flex items-center justify-between gap-3 sm:gap-4 relative">
             {/* Logo Section */}
-            <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+            <div className="flex items-center gap-1 sm:gap-1.5 flex-shrink-0">
               <div className="opacity-70 hover:opacity-100 transition-opacity">
                 <Image
                   src="/main image.png"
@@ -63,12 +63,15 @@ export function LayoutClient() {
                 <a href="/explore" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
                   History
                 </a>
-                <a href="#about" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
+                <a href="/about" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
                   About
                 </a>
-                <a href="#contact" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
+                <button onClick={() => {
+                  const footer = document.querySelector('footer')
+                  footer?.scrollIntoView({ behavior: 'smooth' })
+                }} className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors cursor-pointer">
                   Contact
-                </a>
+                </button>
               </div>
             </div>
 
@@ -93,18 +96,22 @@ export function LayoutClient() {
                 <p className="text-xs font-['Playfair_Display'] font-semibold text-secondary tracking-wide text-center">
                   THE SPICE LAND OF INDIA
                 </p>
-                <a href="/" className="block px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded hover:bg-primary/10 text-center">
+                <a href="/" onClick={() => setMobileMenuOpen(false)} className="block px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded hover:bg-primary/10 text-center">
                   Home
                 </a>
-                <a href="/explore" className="block px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded hover:bg-primary/10 text-center">
+                <a href="/explore" onClick={() => setMobileMenuOpen(false)} className="block px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded hover:bg-primary/10 text-center">
                   History
                 </a>
-                <a href="#about" className="block px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded hover:bg-primary/10 text-center">
+                <a href="/about" onClick={() => setMobileMenuOpen(false)} className="block px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded hover:bg-primary/10 text-center">
                   About
                 </a>
-                <a href="#contact" className="block px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded hover:bg-primary/10 text-center">
+                <button onClick={() => {
+                  setMobileMenuOpen(false)
+                  const footer = document.querySelector('footer')
+                  footer?.scrollIntoView({ behavior: 'smooth' })
+                }} className="w-full block px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded hover:bg-primary/10 text-center cursor-pointer">
                   Contact
-                </a>
+                </button>
                 <Button className="w-full mt-2 bg-primary hover:bg-primary/90 text-background font-semibold text-sm py-2">
                   Order Now
                 </Button>

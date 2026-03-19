@@ -4,6 +4,19 @@ import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 
 export default function Home() {
+  const handleWhatsAppRedirect = () => {
+    const phoneNumber = '919676136222'
+    const message = "Hello Garthapuri! 🍽️ I'm ready to indulge in your authentic culinary treasures. Let's explore your cloud kitchen offerings! ✨"
+    const encodedMessage = encodeURIComponent(message)
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`
+    window.open(whatsappUrl, '_blank')
+  }
+
+  const scrollToMenu = () => {
+    const menuSection = document.getElementById('menu-highlights')
+    menuSection?.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
     <>
       {/* Hero Section */}
@@ -75,10 +88,10 @@ export default function Home() {
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 mt-2 animate-scale-in" style={{ animationDelay: '0.4s' }}>
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-background font-bold shadow-lg hover:shadow-2xl transition-all px-8 sm:px-12 text-base hover:scale-105 rounded-full text-lg font-['Playfair_Display']">
+                <Button onClick={scrollToMenu} size="lg" className="bg-primary hover:bg-primary/90 text-background font-bold shadow-lg hover:shadow-2xl transition-all px-8 sm:px-12 text-base hover:scale-105 rounded-full text-lg font-['Playfair_Display']">
                   Order Now
                 </Button>
-                <Button size="lg" variant="outline" className="border-2 border-primary text-primary hover:bg-primary hover:text-background font-bold transition-all px-8 sm:px-12 text-base hover:scale-105 rounded-full text-lg font-['Playfair_Display']">
+                <Button onClick={scrollToMenu} size="lg" variant="outline" className="border-2 border-primary text-primary hover:bg-primary hover:text-background font-bold transition-all px-8 sm:px-12 text-base hover:scale-105 rounded-full text-lg font-['Playfair_Display']">
                   View Menu
                 </Button>
               </div>
@@ -89,7 +102,7 @@ export default function Home() {
         </section>
 
       {/* Menu Highlights Section */}
-      <section className="bg-gradient-to-b from-[#d4af37]/20 to-[#d4af37]/10 py-4 sm:py-6 md:py-8">
+      <section id="menu-highlights" className="bg-gradient-to-b from-[#d4af37]/20 to-[#d4af37]/10 py-4 sm:py-6 md:py-8">
         <div className="w-full px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center space-y-3 mb-12 sm:mb-16">
@@ -115,7 +128,7 @@ export default function Home() {
           {/* Menu Categories Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {/* Morning */}
-            <div className="bg-white rounded-2xl p-8 text-center hover:shadow-lg transition-shadow duration-300 cursor-pointer">
+            <div onClick={handleWhatsAppRedirect} className="bg-white rounded-2xl p-8 text-center hover:shadow-lg transition-shadow duration-300 cursor-pointer">
               <div className="flex justify-center mb-4">
                 <Image
                   src="/thali.png"
@@ -134,7 +147,7 @@ export default function Home() {
             </div>
 
             {/* Afternoon */}
-            <div className="bg-white rounded-2xl p-8 text-center hover:shadow-lg transition-shadow duration-300 cursor-pointer">
+            <div onClick={handleWhatsAppRedirect} className="bg-white rounded-2xl p-8 text-center hover:shadow-lg transition-shadow duration-300 cursor-pointer">
               <div className="flex justify-center mb-4">
                 <Image
                   src="/thali.png"
@@ -153,7 +166,7 @@ export default function Home() {
             </div>
 
             {/* Evening */}
-            <div className="bg-white rounded-2xl p-8 text-center hover:shadow-lg transition-shadow duration-300 cursor-pointer">
+            <div onClick={handleWhatsAppRedirect} className="bg-white rounded-2xl p-8 text-center hover:shadow-lg transition-shadow duration-300 cursor-pointer">
               <div className="flex justify-center mb-4">
                 <Image
                   src="/thali.png"
@@ -172,7 +185,7 @@ export default function Home() {
             </div>
 
             {/* Dinner */}
-            <div className="bg-white rounded-2xl p-8 text-center hover:shadow-lg transition-shadow duration-300 cursor-pointer">
+            <div onClick={handleWhatsAppRedirect} className="bg-white rounded-2xl p-8 text-center hover:shadow-lg transition-shadow duration-300 cursor-pointer">
               <div className="flex justify-center mb-4">
                 <Image
                   src="/thali.png"

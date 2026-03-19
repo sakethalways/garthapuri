@@ -32,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={_playfairDisplay.variable}>
+    <html lang="en" className={_playfairDisplay.variable} suppressHydrationWarning>
       <body className="font-sans antialiased">
         <div className="flex min-h-screen flex-col bg-background text-foreground">
           <LayoutClient />
