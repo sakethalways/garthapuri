@@ -90,11 +90,40 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-background via-background to-card/20 -mt-14 sm:-mt-24 pb-12 sm:pb-20 md:pb-24">
-          <div className="w-full px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center gap-0 relative min-h-[100svh] sm:h-screen pt-14 sm:pt-24">
+      <section className="relative overflow-hidden bg-gradient-to-b from-background via-background to-card/20 -mt-14 sm:-mt-24 pb-8 sm:pb-20 md:pb-24">
+          <div className="w-full px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center gap-0 relative min-h-0 sm:h-screen pt-4 sm:pt-24">
 
-            {/* Chakra Background with Rotation - Behind everything */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 -mt-16 sm:mt-0">
+            {/* === MOBILE: Flow layout for chakra + logo (no absolute gaps) === */}
+            <div className="flex sm:hidden flex-col items-center justify-center w-full relative -mt-12 -mb-16">
+              {/* Chakra + Logo stacked centered */}
+              <div className="relative flex items-center justify-center -my-10">
+                {/* Chakra behind */}
+                <div className="animate-rotate-slow opacity-60">
+                  <Image
+                    src="/chakra3.png"
+                    alt="Decorative chakra"
+                    width={1000}
+                    height={1000}
+                    priority
+                    className="w-[160vw] h-[160vw] max-w-[650px] max-h-[650px] object-contain"
+                  />
+                </div>
+                {/* Logo on top, centered */}
+                <div className="absolute inset-0 flex items-center justify-center animate-fade-in-up drop-shadow-lg">
+                  <Image
+                    src="/engtopb logo.png"
+                    alt="Garthapuri - The Spice Land of India"
+                    width={650}
+                    height={650}
+                    priority
+                    className="w-[115vw] h-[115vw] max-w-[500px] max-h-[500px] object-contain drop-shadow-2xl"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* === DESKTOP: Absolute positioning (unchanged) === */}
+            <div className="hidden sm:flex absolute inset-0 items-center justify-center pointer-events-none z-0">
               <div className="animate-rotate-slow opacity-60">
                 <Image
                   src="/chakra3.png"
@@ -102,25 +131,24 @@ export default function Home() {
                   width={1000}
                   height={1000}
                   priority
-                  className="w-80 h-80 sm:w-[600px] sm:h-[600px] md:w-[800px] md:h-[800px] lg:w-[1000px] lg:h-[1000px] object-contain"
+                  className="sm:w-[600px] sm:h-[600px] md:w-[800px] md:h-[800px] lg:w-[1000px] lg:h-[1000px] object-contain"
                 />
               </div>
             </div>
 
-            {/* Centered Hero Logo - Absolutely positioned on chakra */}
-            <div className="absolute z-10 flex items-center justify-center animate-fade-in-up top-[38%] sm:top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 drop-shadow-lg">
+            <div className="hidden sm:flex absolute z-10 items-center justify-center animate-fade-in-up top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 drop-shadow-lg">
               <Image
                 src="/engtopb logo.png"
                 alt="Garthapuri - The Spice Land of India"
                 width={650}
                 height={650}
                 priority
-                className="w-64 h-64 sm:w-[430px] sm:h-[430px] md:w-[500px] md:h-[500px] lg:w-[750px] lg:h-[750px] object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-300"
+                className="sm:w-[430px] sm:h-[430px] md:w-[500px] md:h-[500px] lg:w-[750px] lg:h-[750px] object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-300"
               />
             </div>
 
             {/* Threshold Image - Left Bottom (Half Elephant) */}
-            <div className="absolute z-5 -bottom-16 -left-16 sm:-bottom-24 sm:-left-28 pointer-events-none hidden sm:block">
+            <div className="absolute z-5 -bottom-24 -left-28 pointer-events-none hidden sm:block">
               <Image
                 src="/threshold image6.png"
                 alt="Threshold decoration"
@@ -145,7 +173,7 @@ export default function Home() {
 
 
             {/* Hero Content - Below chakra and logo */}
-            <div className="relative z-10 w-full flex flex-col items-center gap-3 sm:gap-4 md:gap-5 mt-auto pb-6 sm:pb-0 sm:mt-[304px] md:mt-[368px]">
+            <div className="relative z-10 w-full flex flex-col items-center gap-2 sm:gap-4 md:gap-5 mt-0 sm:mt-[304px] md:mt-[368px]">
               {/* Description */}
               <div className="text-center space-y-1.5 sm:space-y-2 max-w-4xl mx-auto animate-fade-in-up px-4" style={{ animationDelay: '0.2s' }}>
                 <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-['Playfair_Display'] font-bold text-primary leading-tight">

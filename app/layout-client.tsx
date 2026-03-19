@@ -113,6 +113,7 @@ function LayoutClientContent() {
                   alt="Garthapuri Logo"
                   width={50}
                   height={50}
+                  priority
                   className="w-10 h-10 sm:w-16 sm:h-16 object-contain"
                 />
               </div>
@@ -124,6 +125,7 @@ function LayoutClientContent() {
                   alt="Garthapuri Telugu Logo"
                   width={120}
                   height={40}
+                  priority
                   className="h-7 sm:h-11 w-auto object-contain animate-cycle-logo-tel"
                 />
 
@@ -136,6 +138,7 @@ function LayoutClientContent() {
                   alt="Garthapuri English Logo"
                   width={120}
                   height={40}
+                  priority
                   className="h-7 sm:h-11 w-auto object-contain animate-cycle-logo-eng absolute"
                 />
 
