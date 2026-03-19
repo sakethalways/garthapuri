@@ -50,7 +50,7 @@ export default function Home() {
             </div>
 
             {/* Threshold Image - Left Bottom (Half Elephant) */}
-            <div className="absolute z-5 -bottom-20 -left-28 pointer-events-none">
+            <div className="absolute z-5 -bottom-24 -left-28 pointer-events-none">
               <Image
                 src="/threshold image6.png"
                 alt="Threshold decoration"
