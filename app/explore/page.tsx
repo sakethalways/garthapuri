@@ -45,6 +45,11 @@ export default function ExplorePage() {
   const containerRef = useRef<HTMLDivElement>(null)
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const itemRefs = useRef<(HTMLDivElement | null)[]>([])
+  const headerLogoRef = useRef<HTMLDivElement>(null)
+  const headerTitleRef = useRef<HTMLHeadingElement>(null)
+  const headerSubtitleRef = useRef<HTMLParagraphElement>(null)
+  const imageRefs = useRef<(HTMLDivElement | null)[]>([])
+  const contentRefs = useRef<(HTMLDivElement | null)[]>([])
 
   useEffect(() => {
     // Initialize Three.js background
@@ -110,42 +115,91 @@ export default function ExplorePage() {
   }, [])
 
   useEffect(() => {
-    // GSAP animations for scroll - cards visible immediately
+    // Header entrance animations - slower and immediate
+    if (headerLogoRef.current) {
+      gsap.to(headerLogoRef.current, {
+        opacity: 1,
+        scale: 1,
+        duration: 1.5,
+        ease: 'elastic.out(1, 0.4)',
+      })
+    }
+
+    if (headerTitleRef.current) {
+      gsap.to(headerTitleRef.current, {
+        opacity: 1,
+        y: 0,
+        duration: 1.5,
+        delay: 0.04,
+        ease: 'power2.out',
+      })
+    }
+
+    if (headerSubtitleRef.current) {
+      gsap.to(headerSubtitleRef.current, {
+        opacity: 1,
+        y: 0,
+        duration: 1.5,
+        delay: 0.06,
+        ease: 'power2.out',
+      })
+    }
+
+    // Explore items animations - fade in with slow lateral movement
     itemRefs.current.forEach((item, index) => {
       if (item) {
-        // Animate in on initial load
-        gsap.from(item, {
-          opacity: 0,
-          y: 30,
-          scale: 0.98,
-          duration: 0.6,
-          delay: index * 0.05,
-          ease: 'power2.out',
-        })
+        const imageDiv = imageRefs.current[index]
+        const contentDiv = contentRefs.current[index]
 
-        // Hover animation
-        item.addEventListener('mouseenter', () => {
-          gsap.to(item, {
-            scale: 1.05,
-            boxShadow: '0 20px 60px rgba(141, 60, 2, 0.4)',
-            duration: 0.3,
-          })
-        })
+        // Image animation - slow fade in and slide from center
+        if (imageDiv) {
+          gsap.to(imageDiv, 
+            {
+              opacity: 1,
+              x: index % 2 === 0 ? -40 : 40,
+              duration: 1.2,
+              delay: 0.1 + index * 0.05,
+              ease: 'power2.inOut',
+              scrollTrigger: {
+                trigger: item,
+                start: 'top 75%',
+                end: 'top 60%',
+                scrub: false,
+                once: true,
+              },
+            }
+          )
+        }
 
-        item.addEventListener('mouseleave', () => {
-          gsap.to(item, {
-            scale: 1,
-            boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)',
-            duration: 0.3,
-          })
-        })
+        // Content animation - slow fade in and slide from opposite direction
+        if (contentDiv) {
+          gsap.to(contentDiv,
+            {
+              opacity: 1,
+              x: index % 2 === 0 ? 40 : -40,
+              duration: 1.2,
+              delay: 0.1 + index * 0.05,
+              ease: 'power2.inOut',
+              scrollTrigger: {
+                trigger: item,
+                start: 'top 75%',
+                end: 'top 60%',
+                scrub: false,
+                once: true,
+              },
+            }
+          )
+        }
       }
     })
 
     return () => {
       // Cleanup animations
-      itemRefs.current.forEach(item => {
-        if (item) gsap.killTweensOf(item)
+      itemRefs.current.forEach((item, index) => {
+        if (item) {
+          gsap.killTweensOf(imageRefs.current[index])
+          gsap.killTweensOf(contentRefs.current[index])
+        }
       })
     }
   }, [])
@@ -160,7 +214,7 @@ export default function ExplorePage() {
 
       {/* Header with Logo - Scrolls with page */}
       <div className="py-2 sm:py-3 md:py-4 bg-gradient-to-b from-[#faf8f5] via-[#fefdfb] to-transparent">
-        <div className="flex justify-center">
+        <div className="flex justify-center" ref={headerLogoRef} style={{ opacity: 0 }}>
           <Image
             src="/endsides logo.png"
             alt="Garthapuri - Explore"
@@ -170,25 +224,29 @@ export default function ExplorePage() {
             priority
           />
         </div>
-        <h1 className="text-center text-2xl sm:text-3xl md:text-4xl font-['Playfair_Display'] font-bold text-[#8d3c02] mt-2 sm:mt-3 tracking-wider">
+        <h1 ref={headerTitleRef} className="text-center text-2xl sm:text-3xl md:text-4xl font-['Playfair_Display'] font-bold text-[#8d3c02] mt-2 sm:mt-3 tracking-wider" style={{ opacity: 0 }}>
           THE SOUL OF GARTHAPURI
         </h1>
-        <p className="text-center text-[#8d3c02]/70 text-sm sm:text-base mt-1 px-4 sm:px-6 lg:px-20 xl:px-32 2xl:px-48">
+        <p ref={headerSubtitleRef} className="text-center text-[#8d3c02]/70 text-sm sm:text-base mt-1 px-4 sm:px-6 lg:px-20 xl:px-32 2xl:px-48" style={{ opacity: 0 }}>
           Where every element has a story
         </p>
       </div>
 
       {/* Main Content */}
       <div ref={containerRef} className="relative z-10 w-full -mt-2">
-        <div className="w-full px-4 sm:px-6 lg:px-20 xl:px-32 2xl:px-48 py-1">
+        <div className="w-full px-7 sm:px-10 lg:px-28 xl:px-44 2xl:px-60 py-1">
           {/* Raw Display */}
           {exploreItems.map((item, index) => (
             <div 
               key={item.id}
-              style={{ display: 'flex', flexDirection: index % 2 === 0 ? 'row' : 'row-reverse', gap: '1.5rem', alignItems: 'center', flexWrap: 'wrap', marginBottom: '3rem' }}
+              ref={(el) => { itemRefs.current[index] = el }}
+              style={{ display: 'flex', flexDirection: index % 2 === 0 ? 'row' : 'row-reverse', gap: '1rem', alignItems: 'center', flexWrap: 'wrap', marginBottom: '3rem' }}
             >
               {/* Image - Raw */}
-              <div style={{ flex: '0 1 35%', minWidth: '180px', maxWidth: '400px', height: 'auto' }}>
+              <div 
+                ref={(el) => { imageRefs.current[index] = el }}
+                style={{ flex: '0 1 35%', minWidth: '180px', maxWidth: '400px', height: 'auto', opacity: 0 }}
+              >
                 <Image
                   src={item.image}
                   alt={item.title}
@@ -200,7 +258,10 @@ export default function ExplorePage() {
               </div>
 
               {/* Content - Raw */}
-              <div style={{ flex: '1 1 55%', minWidth: '200px' }}>
+              <div 
+                ref={(el) => { contentRefs.current[index] = el }}
+                style={{ flex: '1 1 55%', minWidth: '200px', opacity: 0 }}
+              >
                 <h2 style={{ fontSize: 'clamp(1.2rem, 4vw, 2rem)', fontFamily: 'Playfair Display, serif', fontWeight: 'bold', color: '#8d3c02', marginBottom: '0.75rem', marginTop: '0' }}>
                   {item.title}
                 </h2>

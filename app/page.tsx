@@ -172,7 +172,7 @@ export default function Home() {
         </section>
 
       {/* Menu Highlights Section */}
-      <section id="menu-highlights" ref={menuSectionRef} className="bg-gradient-to-b from-[#d4af37]/20 to-[#d4af37]/10 py-4 sm:py-6 md:py-8">
+      <section id="menu-highlights" ref={menuSectionRef} className="bg-gradient-to-b from-[#d4af37]/20 to-[#d4af37]/10 py-4 sm:py-6 md:py-8 pb-16 sm:pb-24 md:pb-32">
         <div className="w-full px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center space-y-3 mb-12 sm:mb-16">
