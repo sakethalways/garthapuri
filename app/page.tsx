@@ -1,9 +1,16 @@
 'use client'
 
+import { useEffect, useRef } from 'react'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 export default function Home() {
+  const menuCardsRef = useRef<(HTMLDivElement | null)[]>([])
+  const menuSectionRef = useRef<HTMLDivElement>(null)
   const handleWhatsAppRedirect = () => {
     const phoneNumber = '919676136222'
     const message = "Hello Garthapuri! 🍽️ I'm ready to indulge in your authentic culinary treasures. Let's explore your cloud kitchen offerings! ✨"
@@ -16,6 +23,69 @@ export default function Home() {
     const menuSection = document.getElementById('menu-highlights')
     menuSection?.scrollIntoView({ behavior: 'smooth' })
   }
+
+  useEffect(() => {
+    // Animate menu cards one by one when section comes into view
+    if (menuCardsRef.current.length > 0) {
+      menuCardsRef.current.forEach((card, index) => {
+        if (card) {
+          // Initial state
+          gsap.set(card, {
+            opacity: 0,
+            y: 60,
+            scale: 0.85,
+            rotationZ: -3
+          })
+
+          // Animate on scroll
+          gsap.to(card, {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            rotationZ: 0,
+            duration: 0.8,
+            delay: index * 0.15,
+            ease: 'elastic.out(1, 0.5)',
+            scrollTrigger: {
+              trigger: menuSectionRef.current,
+              start: 'top 30%',
+              end: 'top center',
+              scrub: false,
+              once: true
+            }
+          })
+
+          // Hover animation
+          card.addEventListener('mouseenter', () => {
+            gsap.to(card, {
+              scale: 1.08,
+              y: -10,
+              boxShadow: '0 25px 50px rgba(141, 60, 2, 0.3)',
+              duration: 0.3,
+              ease: 'power2.out'
+            })
+          })
+
+          card.addEventListener('mouseleave', () => {
+            gsap.to(card, {
+              scale: 1,
+              y: 0,
+              boxShadow: '0 0px 0px rgba(0, 0, 0, 0)',
+              duration: 0.3,
+              ease: 'power2.out'
+            })
+          })
+        }
+      })
+    }
+
+    return () => {
+      // Cleanup
+      menuCardsRef.current.forEach(card => {
+        if (card) gsap.killTweensOf(card)
+      })
+    }
+  }, [])
 
   return (
     <>
@@ -102,7 +172,7 @@ export default function Home() {
         </section>
 
       {/* Menu Highlights Section */}
-      <section id="menu-highlights" className="bg-gradient-to-b from-[#d4af37]/20 to-[#d4af37]/10 py-4 sm:py-6 md:py-8">
+      <section id="menu-highlights" ref={menuSectionRef} className="bg-gradient-to-b from-[#d4af37]/20 to-[#d4af37]/10 py-4 sm:py-6 md:py-8">
         <div className="w-full px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center space-y-3 mb-12 sm:mb-16">
@@ -128,7 +198,11 @@ export default function Home() {
           {/* Menu Categories Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {/* Morning */}
-            <div onClick={handleWhatsAppRedirect} className="bg-white rounded-2xl p-8 text-center hover:shadow-lg transition-shadow duration-300 cursor-pointer">
+            <div
+              ref={(el) => { menuCardsRef.current[0] = el }}
+              onClick={handleWhatsAppRedirect}
+              className="bg-white rounded-2xl p-8 text-center hover:shadow-lg transition-shadow duration-300 cursor-pointer"
+            >
               <div className="flex justify-center mb-4">
                 <Image
                   src="/thali.png"
@@ -147,7 +221,11 @@ export default function Home() {
             </div>
 
             {/* Afternoon */}
-            <div onClick={handleWhatsAppRedirect} className="bg-white rounded-2xl p-8 text-center hover:shadow-lg transition-shadow duration-300 cursor-pointer">
+            <div
+              ref={(el) => { menuCardsRef.current[1] = el }}
+              onClick={handleWhatsAppRedirect}
+              className="bg-white rounded-2xl p-8 text-center hover:shadow-lg transition-shadow duration-300 cursor-pointer"
+            >
               <div className="flex justify-center mb-4">
                 <Image
                   src="/thali.png"
@@ -166,7 +244,11 @@ export default function Home() {
             </div>
 
             {/* Evening */}
-            <div onClick={handleWhatsAppRedirect} className="bg-white rounded-2xl p-8 text-center hover:shadow-lg transition-shadow duration-300 cursor-pointer">
+            <div
+              ref={(el) => { menuCardsRef.current[2] = el }}
+              onClick={handleWhatsAppRedirect}
+              className="bg-white rounded-2xl p-8 text-center hover:shadow-lg transition-shadow duration-300 cursor-pointer"
+            >
               <div className="flex justify-center mb-4">
                 <Image
                   src="/thali.png"
@@ -185,7 +267,11 @@ export default function Home() {
             </div>
 
             {/* Dinner */}
-            <div onClick={handleWhatsAppRedirect} className="bg-white rounded-2xl p-8 text-center hover:shadow-lg transition-shadow duration-300 cursor-pointer">
+            <div
+              ref={(el) => { menuCardsRef.current[3] = el }}
+              onClick={handleWhatsAppRedirect}
+              className="bg-white rounded-2xl p-8 text-center hover:shadow-lg transition-shadow duration-300 cursor-pointer"
+            >
               <div className="flex justify-center mb-4">
                 <Image
                   src="/thali.png"
