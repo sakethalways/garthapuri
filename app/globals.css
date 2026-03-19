@@ -221,4 +221,52 @@
   .animate-cycle-text-second {
     animation: cycle-text-second 12s ease-in-out infinite;
   }
+
+  /* Mobile: 4-phase cycle (same as desktop, smaller text) */
+  @keyframes cycle-logo-tel-m {
+    0% { opacity: 1; }
+    20% { opacity: 1; }
+    25% { opacity: 0; }
+    95% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  .animate-cycle-logo-tel-m {
+    animation: cycle-logo-tel-m 10s ease-in-out infinite;
+  }
+
+  @keyframes cycle-text-first-m {
+    0% { opacity: 0; }
+    20% { opacity: 0; }
+    25% { opacity: 1; }
+    45% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 0; }
+  }
+  .animate-cycle-text-first-m {
+    animation: cycle-text-first-m 10s ease-in-out infinite;
+  }
+
+  @keyframes cycle-logo-eng-m {
+    0% { opacity: 0; }
+    45% { opacity: 0; }
+    50% { opacity: 1; }
+    70% { opacity: 1; }
+    75% { opacity: 0; }
+    100% { opacity: 0; }
+  }
+  .animate-cycle-logo-eng-m {
+    animation: cycle-logo-eng-m 10s ease-in-out infinite;
+  }
+
+  @keyframes cycle-text-second-m {
+    0% { opacity: 0; }
+    70% { opacity: 0; }
+    75% { opacity: 1; }
+    92% { opacity: 1; }
+    97% { opacity: 0; }
+    100% { opacity: 0; }
+  }
+  .animate-cycle-text-second-m {
+    animation: cycle-text-second-m 10s ease-in-out infinite;
+  }
 }

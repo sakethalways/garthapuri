@@ -90,11 +90,11 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-background via-background to-card/20 -mt-14 sm:-mt-24 pb-8 sm:pb-20 md:pb-24">
-          <div className="w-full px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center gap-0 relative min-h-0 sm:h-screen pt-4 sm:pt-24">
+      <section className="relative overflow-hidden bg-gradient-to-b from-background via-background to-card/20 -mt-14 sm:-mt-24 pb-0 sm:pb-20 md:pb-24">
+          <div className="w-full px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center gap-0 relative min-h-[calc(100svh-3.5rem)] sm:h-screen pt-0 sm:pt-24">
 
             {/* === MOBILE: Flow layout for chakra + logo (no absolute gaps) === */}
-            <div className="flex sm:hidden flex-col items-center justify-center w-full relative -mt-12 -mb-16">
+            <div className="flex sm:hidden flex-col items-center justify-center flex-1 w-full relative -mb-16">
               {/* Chakra + Logo stacked centered */}
               <div className="relative flex items-center justify-center -my-10">
                 {/* Chakra behind */}
@@ -173,7 +173,7 @@ export default function Home() {
 
 
             {/* Hero Content - Below chakra and logo */}
-            <div className="relative z-10 w-full flex flex-col items-center gap-2 sm:gap-4 md:gap-5 mt-0 sm:mt-[304px] md:mt-[368px]">
+            <div className="relative z-10 w-full flex flex-col items-center gap-2 sm:gap-4 md:gap-5 pb-6 sm:pb-0 sm:mt-[304px] md:mt-[368px]">
               {/* Description */}
               <div className="text-center space-y-1.5 sm:space-y-2 max-w-4xl mx-auto animate-fade-in-up px-4" style={{ animationDelay: '0.2s' }}>
                 <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-['Playfair_Display'] font-bold text-primary leading-tight">
@@ -185,7 +185,7 @@ export default function Home() {
               </div>
 
               {/* CTA Buttons */}
-              <div className="flex flex-row gap-3 sm:gap-4 mt-2 animate-scale-in" style={{ animationDelay: '0.4s' }}>
+              <div className="flex flex-row gap-3 sm:gap-4 mt-6 mb-8 sm:mt-2 sm:mb-0 animate-scale-in" style={{ animationDelay: '0.4s' }}>
                 <Button onClick={scrollToMenu} size="lg" className="bg-primary hover:bg-primary/90 text-background font-bold shadow-lg hover:shadow-2xl transition-all px-6 sm:px-12 text-sm sm:text-lg hover:scale-105 rounded-full font-['Playfair_Display']">
                   Order Now
                 </Button>

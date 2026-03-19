@@ -118,18 +118,44 @@ function LayoutClientContent() {
                 />
               </div>
 
-              {/* Cycling Text and Logo Images */}
-              <div className="relative w-36 sm:w-64 h-9 sm:h-14 flex items-center min-w-0 overflow-hidden">
+              {/* Mobile: 4-phase cycle with smaller text */}
+              <div className="relative w-36 h-9 flex sm:hidden items-center min-w-0 overflow-hidden">
                 <Image
                   src="/logo name tel.png"
                   alt="Garthapuri Telugu Logo"
                   width={120}
                   height={40}
                   priority
-                  className="h-7 sm:h-11 w-auto object-contain animate-cycle-logo-tel"
+                  className="h-7 w-auto object-contain animate-cycle-logo-tel-m"
+                />
+                <span className="absolute text-[9px] font-['Playfair_Display'] font-thin italic text-[#8d3c02] tracking-wide whitespace-nowrap drop-shadow-lg animate-cycle-text-first-m">
+                  THE SPICE LAND OF INDIA
+                </span>
+                <Image
+                  src="/logo name eng.png"
+                  alt="Garthapuri English Logo"
+                  width={120}
+                  height={40}
+                  priority
+                  className="h-7 w-auto object-contain animate-cycle-logo-eng-m absolute"
+                />
+                <span className="absolute text-[9px] font-['Playfair_Display'] font-thin italic text-[#8d3c02] tracking-wide whitespace-nowrap drop-shadow-lg animate-cycle-text-second-m">
+                  THE SPICE LAND OF INDIA
+                </span>
+              </div>
+
+              {/* Desktop: 4-phase cycle with text */}
+              <div className="relative hidden sm:flex w-64 h-14 items-center min-w-0 overflow-hidden">
+                <Image
+                  src="/logo name tel.png"
+                  alt="Garthapuri Telugu Logo"
+                  width={120}
+                  height={40}
+                  priority
+                  className="h-11 w-auto object-contain animate-cycle-logo-tel"
                 />
 
-                <span className="absolute hidden sm:block text-sm font-['Playfair_Display'] font-thin italic text-[#8d3c02] tracking-wide whitespace-nowrap drop-shadow-lg animate-cycle-text-first">
+                <span className="absolute text-sm font-['Playfair_Display'] font-thin italic text-[#8d3c02] tracking-wide whitespace-nowrap drop-shadow-lg animate-cycle-text-first">
                   THE SPICE LAND OF INDIA
                 </span>
 
@@ -139,10 +165,10 @@ function LayoutClientContent() {
                   width={120}
                   height={40}
                   priority
-                  className="h-7 sm:h-11 w-auto object-contain animate-cycle-logo-eng absolute"
+                  className="h-11 w-auto object-contain animate-cycle-logo-eng absolute"
                 />
 
-                <span className="absolute hidden sm:block text-sm font-['Playfair_Display'] font-thin italic text-[#8d3c02] tracking-wide whitespace-nowrap drop-shadow-lg animate-cycle-text-second">
+                <span className="absolute text-sm font-['Playfair_Display'] font-thin italic text-[#8d3c02] tracking-wide whitespace-nowrap drop-shadow-lg animate-cycle-text-second">
                   THE SPICE LAND OF INDIA
                 </span>
               </div>
