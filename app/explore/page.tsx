@@ -146,23 +146,25 @@ export default function ExplorePage() {
     }
 
     // Explore items animations - fade in with slow lateral movement
+    const isMobile = window.innerWidth < 640
     itemRefs.current.forEach((item, index) => {
       if (item) {
         const imageDiv = imageRefs.current[index]
         const contentDiv = contentRefs.current[index]
 
-        // Image animation - slow fade in and slide from center
+        // Image animation - vertical fade on mobile, lateral slide on desktop
         if (imageDiv) {
-          gsap.to(imageDiv, 
+          gsap.to(imageDiv,
             {
               opacity: 1,
-              x: index % 2 === 0 ? -40 : 40,
+              x: isMobile ? 0 : (index % 2 === 0 ? -40 : 40),
+              y: isMobile ? 0 : undefined,
               duration: 1.2,
               delay: 0.1 + index * 0.05,
               ease: 'power2.inOut',
               scrollTrigger: {
                 trigger: item,
-                start: 'top 75%',
+                start: 'top 85%',
                 end: 'top 60%',
                 scrub: false,
                 once: true,
@@ -171,18 +173,19 @@ export default function ExplorePage() {
           )
         }
 
-        // Content animation - slow fade in and slide from opposite direction
+        // Content animation - vertical fade on mobile, lateral slide on desktop
         if (contentDiv) {
           gsap.to(contentDiv,
             {
               opacity: 1,
-              x: index % 2 === 0 ? 40 : -40,
+              x: isMobile ? 0 : (index % 2 === 0 ? 40 : -40),
+              y: isMobile ? 0 : undefined,
               duration: 1.2,
               delay: 0.1 + index * 0.05,
               ease: 'power2.inOut',
               scrollTrigger: {
                 trigger: item,
-                start: 'top 75%',
+                start: 'top 85%',
                 end: 'top 60%',
                 scrub: false,
                 once: true,
@@ -220,32 +223,32 @@ export default function ExplorePage() {
             alt="Garthapuri - Explore"
             width={200}
             height={80}
-            className="h-16 sm:h-20 md:h-24 w-auto object-contain drop-shadow-lg"
+            className="h-12 sm:h-20 md:h-24 w-auto object-contain drop-shadow-lg"
             priority
           />
         </div>
-        <h1 ref={headerTitleRef} className="text-center text-2xl sm:text-3xl md:text-4xl font-['Playfair_Display'] font-bold text-[#8d3c02] mt-2 sm:mt-3 tracking-wider" style={{ opacity: 0 }}>
+        <h1 ref={headerTitleRef} className="text-center text-lg sm:text-3xl md:text-4xl font-['Playfair_Display'] font-bold text-[#8d3c02] mt-2 sm:mt-3 tracking-wider" style={{ opacity: 0 }}>
           THE SOUL OF GARTHAPURI
         </h1>
-        <p ref={headerSubtitleRef} className="text-center text-[#8d3c02]/70 text-sm sm:text-base mt-1 px-4 sm:px-6 lg:px-20 xl:px-32 2xl:px-48" style={{ opacity: 0 }}>
+        <p ref={headerSubtitleRef} className="text-center text-[#8d3c02]/70 text-xs sm:text-base mt-1 px-4 sm:px-6 lg:px-20 xl:px-32 2xl:px-48" style={{ opacity: 0 }}>
           Where every element has a story
         </p>
       </div>
 
       {/* Main Content */}
       <div ref={containerRef} className="relative z-10 w-full -mt-2">
-        <div className="w-full px-7 sm:px-10 lg:px-28 xl:px-44 2xl:px-60 py-1">
+        <div className="w-full px-4 sm:px-10 lg:px-28 xl:px-44 2xl:px-60 py-1">
           {/* Raw Display */}
           {exploreItems.map((item, index) => (
-            <div 
+            <div
               key={item.id}
               ref={(el) => { itemRefs.current[index] = el }}
-              style={{ display: 'flex', flexDirection: index % 2 === 0 ? 'row' : 'row-reverse', gap: '1rem', alignItems: 'center', flexWrap: 'wrap', marginBottom: '3rem' }}
+              className={`flex flex-col sm:flex-row ${index % 2 !== 0 ? 'sm:flex-row-reverse' : ''} gap-4 sm:gap-6 items-center mb-10 sm:mb-12`}
             >
-              {/* Image - Raw */}
-              <div 
+              {/* Image */}
+              <div
                 ref={(el) => { imageRefs.current[index] = el }}
-                style={{ flex: '0 1 35%', minWidth: '180px', maxWidth: '400px', height: 'auto', opacity: 0 }}
+                className="w-48 sm:w-auto sm:flex-shrink-0 sm:basis-[35%] sm:max-w-[400px] opacity-0"
               >
                 <Image
                   src={item.image}
@@ -253,19 +256,19 @@ export default function ExplorePage() {
                   width={400}
                   height={400}
                   loading={index === 0 ? "eager" : "lazy"}
-                  style={{ width: '100%', height: 'auto', maxHeight: '350px', display: 'block', objectFit: 'contain' }}
+                  className="w-full h-auto max-h-[250px] sm:max-h-[350px] object-contain block"
                 />
               </div>
 
-              {/* Content - Raw */}
-              <div 
+              {/* Content */}
+              <div
                 ref={(el) => { contentRefs.current[index] = el }}
-                style={{ flex: '1 1 55%', minWidth: '200px', opacity: 0 }}
+                className="flex-1 min-w-0 text-center sm:text-left opacity-0"
               >
-                <h2 style={{ fontSize: 'clamp(1.2rem, 4vw, 2rem)', fontFamily: 'Playfair Display, serif', fontWeight: 'bold', color: '#8d3c02', marginBottom: '0.75rem', marginTop: '0' }}>
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-['Playfair_Display'] font-bold text-[#8d3c02] mb-2 sm:mb-3">
                   {item.title}
                 </h2>
-                <p style={{ fontSize: 'clamp(0.85rem, 1.8vw, 1rem)', color: '#6b5d4f', lineHeight: '1.5', margin: '0' }}>
+                <p className="text-sm sm:text-base text-[#6b5d4f] leading-relaxed">
                   {item.description}
                 </p>
               </div>
@@ -273,8 +276,8 @@ export default function ExplorePage() {
           ))}
 
           {/* Bottom Text */}
-          <div style={{ marginTop: '5rem', marginBottom: '4rem', textAlign: 'center' }}>
-            <p style={{ fontSize: 'clamp(1rem, 3vw, 1.3rem)', fontFamily: 'Playfair Display, serif', fontWeight: '600', color: '#8d3c02', letterSpacing: '0.05em' }}>
+          <div className="mt-12 sm:mt-20 mb-10 sm:mb-16 text-center px-4">
+            <p className="text-base sm:text-lg md:text-xl font-['Playfair_Display'] font-semibold text-[#8d3c02] tracking-wide">
               Each element tells a story of heritage and tradition
             </p>
           </div>

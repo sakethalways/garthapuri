@@ -15,22 +15,22 @@ export default function AboutPage() {
                 alt="Garthapuri"
                 width={200}
                 height={80}
-                className="h-20 sm:h-24 md:h-28 w-auto object-contain drop-shadow-lg"
+                className="h-14 sm:h-24 md:h-28 w-auto object-contain drop-shadow-lg"
                 priority
               />
             </div>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-['Playfair_Display'] font-bold text-[#8d3c02] mt-2 sm:mt-3">
+            <h1 className="text-2xl sm:text-5xl md:text-6xl font-['Playfair_Display'] font-bold text-[#8d3c02] mt-2 sm:mt-3">
               About Garthapuri
             </h1>
-            <p className="text-lg sm:text-xl text-[#8d3c02]/70 max-w-3xl mx-auto mt-1">
+            <p className="text-sm sm:text-xl text-[#8d3c02]/70 max-w-3xl mx-auto mt-1">
               THE SPICE LAND OF INDIA
             </p>
           </div>
-          <div className="max-w-4xl mx-auto space-y-8 mt-8 sm:mt-12 md:mt-16">
+          <div className="max-w-4xl mx-auto space-y-6 sm:space-y-8 mt-6 sm:mt-12 md:mt-16">
 
             {/* Ancient History */}
             <div className="space-y-4">
-              <h3 className="text-2xl font-['Playfair_Display'] font-bold text-[#8d3c02]">
+              <h3 className="text-lg sm:text-2xl font-['Playfair_Display'] font-bold text-[#8d3c02]">
                 గుంటూరు చరిత్ర (Guntur History)
               </h3>
               <p className="text-base sm:text-lg text-[#6b5d4f] leading-relaxed">
@@ -40,7 +40,7 @@ export default function AboutPage() {
 
             {/* Buddhist Influence */}
             <div className="space-y-4">
-              <h3 className="text-2xl font-['Playfair_Display'] font-bold text-[#8d3c02]">
+              <h3 className="text-lg sm:text-2xl font-['Playfair_Display'] font-bold text-[#8d3c02]">
                 బౌద్ధ ప్రభావం (Buddhist Influence)
               </h3>
               <p className="text-base sm:text-lg text-[#6b5d4f] leading-relaxed">
@@ -50,7 +50,7 @@ export default function AboutPage() {
 
             {/* Satavahanas */}
             <div className="space-y-4">
-              <h3 className="text-2xl font-['Playfair_Display'] font-bold text-[#8d3c02]">
+              <h3 className="text-lg sm:text-2xl font-['Playfair_Display'] font-bold text-[#8d3c02]">
                 సాతవాహనులు (Satavahanas)
               </h3>
               <p className="text-base sm:text-lg text-[#6b5d4f] leading-relaxed">
@@ -60,7 +60,7 @@ export default function AboutPage() {
 
             {/* Other Dynasties */}
             <div className="space-y-4">
-              <h3 className="text-2xl font-['Playfair_Display'] font-bold text-[#8d3c02]">
+              <h3 className="text-lg sm:text-2xl font-['Playfair_Display'] font-bold text-[#8d3c02]">
                 ఇతరు రాజవంశాలు (Other Dynasties)
               </h3>
               <p className="text-base sm:text-lg text-[#6b5d4f] leading-relaxed">
@@ -70,7 +70,7 @@ export default function AboutPage() {
 
             {/* Muslim and British Rule */}
             <div className="space-y-4">
-              <h3 className="text-2xl font-['Playfair_Display'] font-bold text-[#8d3c02]">
+              <h3 className="text-lg sm:text-2xl font-['Playfair_Display'] font-bold text-[#8d3c02]">
                 ముస్లింలు మరియు బ్రిటిష్ పాలన (Muslim and British Rule)
               </h3>
               <p className="text-base sm:text-lg text-[#6b5d4f] leading-relaxed">
@@ -80,7 +80,7 @@ export default function AboutPage() {
 
             {/* Independence Movement */}
             <div className="space-y-4">
-              <h3 className="text-2xl font-['Playfair_Display'] font-bold text-[#8d3c02]">
+              <h3 className="text-lg sm:text-2xl font-['Playfair_Display'] font-bold text-[#8d3c02]">
                 స్వాతంత్ర్య ఉద్యమం (Independence Movement)
               </h3>
               <p className="text-base sm:text-lg text-[#6b5d4f] leading-relaxed">
@@ -92,16 +92,16 @@ export default function AboutPage() {
       </section>
 
       {/* History Title Section */}
-      <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-b from-white/40 to-[#d4af37]/10">
+      <section className="py-8 sm:py-16 md:py-20 bg-gradient-to-b from-white/40 to-[#d4af37]/10">
         <div className="w-full px-4 sm:px-6 lg:px-20 xl:px-32 2xl:px-48">
-          <div className="max-w-4xl mx-auto text-center space-y-3">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-['Playfair_Display'] font-bold text-[#8d3c02]">
+          <div className="max-w-4xl mx-auto text-center space-y-2 sm:space-y-3">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-['Playfair_Display'] font-bold text-[#8d3c02]">
               HISTORY OF
             </h2>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-['Playfair_Display'] font-bold text-[#8d3c02]">
+            <h2 className="text-3xl sm:text-5xl md:text-6xl font-['Playfair_Display'] font-bold text-[#8d3c02]">
               GARTHAPURI
             </h2>
-            <p className="text-lg sm:text-xl text-[#8d3c02]/70 tracking-wider">
+            <p className="text-sm sm:text-xl text-[#8d3c02]/70 tracking-wider">
               ANCIENT NAME OF GUNTUR
             </p>
           </div>
@@ -109,12 +109,12 @@ export default function AboutPage() {
       </section>
 
       {/* Heritage Elements Section */}
-      <section className="py-12 sm:py-16 md:py-20">
+      <section className="py-8 sm:py-16 md:py-20">
         <div className="w-full px-4 sm:px-6 lg:px-20 xl:px-32 2xl:px-48">
-          <h2 className="text-3xl sm:text-4xl font-['Playfair_Display'] font-bold text-[#8d3c02] text-center mb-12">
+          <h2 className="text-2xl sm:text-4xl font-['Playfair_Display'] font-bold text-[#8d3c02] text-center mb-6 sm:mb-12">
             Our Heritage Elements
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8">
             {[
               { title: 'COSMOS', desc: 'Ancient Mandala representing eternal harmony and excellence' },
               { title: 'VIBRANCY', desc: 'Flora and wildlife symbolizing life and storytelling' },
@@ -122,7 +122,7 @@ export default function AboutPage() {
               { title: 'PERMANENCE', desc: 'Pillars of Ashoka representing moral solidity' },
               { title: 'THRESHOLD', desc: 'Elephant and arch marking transition to abundance' }
             ].map((element, index) => (
-              <div key={index} className="bg-white rounded-xl p-6 shadow-md border border-[#d4af37]/20 hover:shadow-lg transition-shadow">
+              <div key={index} className="bg-white rounded-xl p-4 sm:p-6 shadow-md border border-[#d4af37]/20 hover:shadow-lg transition-shadow">
                 <h3 className="text-xl font-['Playfair_Display'] font-bold text-[#8d3c02] mb-2">
                   {element.title}
                 </h3>
@@ -136,13 +136,13 @@ export default function AboutPage() {
       </section>
 
       {/* Closing Statement */}
-      <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-b from-[#d4af37]/10 to-[#d4af37]/20">
+      <section className="py-8 sm:py-16 md:py-20 bg-gradient-to-b from-[#d4af37]/10 to-[#d4af37]/20">
         <div className="w-full px-4 sm:px-6 lg:px-20 xl:px-32 2xl:px-48">
-          <div className="max-w-3xl mx-auto text-center space-y-4">
-            <h2 className="text-3xl sm:text-4xl font-['Playfair_Display'] font-bold text-[#8d3c02]">
+          <div className="max-w-3xl mx-auto text-center space-y-3 sm:space-y-4">
+            <h2 className="text-xl sm:text-4xl font-['Playfair_Display'] font-bold text-[#8d3c02]">
               Garthapuri - The Spice Land of India
             </h2>
-            <p className="text-lg text-[#6b5d4f] leading-relaxed">
+            <p className="text-sm sm:text-lg text-[#6b5d4f] leading-relaxed">
               Where ancient traditions meet modern culinary excellence. Every element tells a story of heritage and tradition, 
               creating an unforgettable dining experience rooted in authentic Indian cuisine.
             </p>
