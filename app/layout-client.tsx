@@ -1,11 +1,11 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, memo } from 'react'
 import { Menu, X } from 'lucide-react'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 
-export function LayoutClient() {
+function LayoutClientContent() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
@@ -124,3 +124,5 @@ export function LayoutClient() {
     </>
   )
 }
+
+export const LayoutClient = memo(LayoutClientContent)
