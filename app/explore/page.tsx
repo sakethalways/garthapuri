@@ -216,21 +216,21 @@ export default function ExplorePage() {
       />
 
       {/* Header with Logo - Scrolls with page */}
-      <div className="py-2 sm:py-3 md:py-4 bg-gradient-to-b from-[#faf8f5] via-[#fefdfb] to-transparent">
+      <div className="py-2 sm:py-3 md:py-4 lg:py-6 bg-gradient-to-b from-[#faf8f5] via-[#fefdfb] to-transparent">
         <div className="flex justify-center" ref={headerLogoRef} style={{ opacity: 0 }}>
           <Image
             src="/endsides logo.png"
             alt="Garthapuri - Explore"
             width={200}
             height={80}
-            className="h-12 sm:h-20 md:h-24 w-auto object-contain drop-shadow-lg"
+            className="h-12 sm:h-16 md:h-20 lg:h-24 w-auto object-contain drop-shadow-lg"
             priority
           />
         </div>
-        <h1 ref={headerTitleRef} className="text-center text-lg sm:text-3xl md:text-4xl font-['Playfair_Display'] font-bold text-[#8d3c02] mt-2 sm:mt-3 tracking-wider" style={{ opacity: 0 }}>
+        <h1 ref={headerTitleRef} className="text-center text-lg sm:text-2xl md:text-3xl lg:text-4xl font-['Playfair_Display'] font-bold text-[#8d3c02] mt-2 sm:mt-3 tracking-wider" style={{ opacity: 0 }}>
           THE SOUL OF GARTHAPURI
         </h1>
-        <p ref={headerSubtitleRef} className="text-center text-[#8d3c02]/70 text-xs sm:text-base mt-1 px-4 sm:px-6 lg:px-20 xl:px-32 2xl:px-48" style={{ opacity: 0 }}>
+        <p ref={headerSubtitleRef} className="text-center text-[#8d3c02]/70 text-xs sm:text-sm md:text-base mt-1 px-4 sm:px-6 lg:px-20 xl:px-32 2xl:px-48" style={{ opacity: 0 }}>
           Where every element has a story
         </p>
       </div>
@@ -243,12 +243,12 @@ export default function ExplorePage() {
             <div
               key={item.id}
               ref={(el) => { itemRefs.current[index] = el }}
-              className={`flex flex-col sm:flex-row ${index % 2 !== 0 ? 'sm:flex-row-reverse' : ''} gap-4 sm:gap-6 items-center mb-10 sm:mb-12`}
+              className={`flex flex-col sm:flex-row ${index % 2 !== 0 ? 'sm:flex-row-reverse' : ''} gap-4 sm:gap-5 md:gap-6 lg:gap-8 items-center mb-10 sm:mb-12 md:mb-14 lg:mb-16`}
             >
               {/* Image */}
               <div
                 ref={(el) => { imageRefs.current[index] = el }}
-                className="w-48 sm:w-auto sm:flex-shrink-0 sm:basis-[35%] sm:max-w-[400px] opacity-0"
+                className="w-48 sm:w-auto sm:flex-shrink-0 sm:basis-[35%] md:basis-[32%] sm:max-w-[350px] md:max-w-[400px] lg:max-w-[450px] opacity-0"
               >
                 <Image
                   src={item.image}
@@ -256,7 +256,7 @@ export default function ExplorePage() {
                   width={400}
                   height={400}
                   loading={index === 0 ? "eager" : "lazy"}
-                  className="w-full h-auto max-h-[250px] sm:max-h-[350px] object-contain block"
+                  className="w-full h-auto max-h-[250px] sm:max-h-[300px] md:max-h-[350px] lg:max-h-[400px] object-contain block"
                 />
               </div>
 
@@ -265,10 +265,10 @@ export default function ExplorePage() {
                 ref={(el) => { contentRefs.current[index] = el }}
                 className="flex-1 min-w-0 text-center sm:text-left opacity-0"
               >
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-['Playfair_Display'] font-bold text-[#8d3c02] mb-2 sm:mb-3">
+                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-['Playfair_Display'] font-bold text-[#8d3c02] mb-2 sm:mb-3">
                   {item.title}
                 </h2>
-                <p className="text-sm sm:text-base text-[#6b5d4f] leading-relaxed">
+                <p className="text-sm sm:text-base md:text-base lg:text-lg text-[#6b5d4f] leading-relaxed">
                   {item.description}
                 </p>
               </div>
@@ -276,8 +276,8 @@ export default function ExplorePage() {
           ))}
 
           {/* Bottom Text */}
-          <div className="mt-12 sm:mt-20 mb-10 sm:mb-16 text-center px-4">
-            <p className="text-base sm:text-lg md:text-xl font-['Playfair_Display'] font-semibold text-[#8d3c02] tracking-wide">
+          <div className="mt-12 sm:mt-16 md:mt-20 mb-10 sm:mb-12 md:mb-16 text-center px-4">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-['Playfair_Display'] font-semibold text-[#8d3c02] tracking-wide">
               Each element tells a story of heritage and tradition
             </p>
           </div>

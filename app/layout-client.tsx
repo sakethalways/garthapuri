@@ -103,7 +103,7 @@ function LayoutClientContent() {
     <>
       {/* Liquid Glass Header */}
       <nav className="sticky top-0 z-50 backdrop-blur-2xl bg-background/40 border-b border-secondary/20">
-        <div className="w-full px-4 sm:px-6 lg:px-8 py-0.5 sm:py-1">
+        <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 py-0.5 sm:py-1">
           <div className="flex items-center justify-between gap-3 sm:gap-4 relative">
             {/* Logo Section */}
             <div className="flex items-center gap-1 sm:gap-1.5 flex-shrink-0 min-w-0">
@@ -114,7 +114,7 @@ function LayoutClientContent() {
                   width={50}
                   height={50}
                   priority
-                  className="w-10 h-10 sm:w-16 sm:h-16 object-contain"
+                  className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 object-contain"
                 />
               </div>
 
@@ -145,17 +145,17 @@ function LayoutClientContent() {
               </div>
 
               {/* Desktop: 4-phase cycle with text */}
-              <div className="relative hidden sm:flex w-64 h-14 items-center min-w-0 overflow-hidden">
+              <div className="relative hidden sm:flex sm:w-48 md:w-56 lg:w-64 h-12 md:h-13 lg:h-14 items-center min-w-0 overflow-hidden">
                 <Image
                   src="/logo name tel.png"
                   alt="Garthapuri Telugu Logo"
                   width={120}
                   height={40}
                   priority
-                  className="h-11 w-auto object-contain animate-cycle-logo-tel"
+                  className="h-8 md:h-10 lg:h-11 w-auto object-contain animate-cycle-logo-tel"
                 />
 
-                <span className="absolute text-sm font-['Playfair_Display'] font-thin italic text-[#8d3c02] tracking-wide whitespace-nowrap drop-shadow-lg animate-cycle-text-first">
+                <span className="absolute text-xs md:text-sm font-['Playfair_Display'] font-thin italic text-[#8d3c02] tracking-wide whitespace-nowrap drop-shadow-lg animate-cycle-text-first">
                   THE SPICE LAND OF INDIA
                 </span>
 
@@ -165,10 +165,10 @@ function LayoutClientContent() {
                   width={120}
                   height={40}
                   priority
-                  className="h-11 w-auto object-contain animate-cycle-logo-eng absolute"
+                  className="h-8 md:h-10 lg:h-11 w-auto object-contain animate-cycle-logo-eng absolute"
                 />
 
-                <span className="absolute text-sm font-['Playfair_Display'] font-thin italic text-[#8d3c02] tracking-wide whitespace-nowrap drop-shadow-lg animate-cycle-text-second">
+                <span className="absolute text-xs md:text-sm font-['Playfair_Display'] font-thin italic text-[#8d3c02] tracking-wide whitespace-nowrap drop-shadow-lg animate-cycle-text-second">
                   THE SPICE LAND OF INDIA
                 </span>
               </div>
@@ -176,20 +176,20 @@ function LayoutClientContent() {
 
             {/* Center Navigation Container - Liquid Glass Effect */}
             <div className="absolute left-1/2 transform -translate-x-1/2">
-              <div className="hidden md:flex items-center gap-6 px-8 py-2 rounded-full backdrop-blur-xl bg-white/10 border border-white/20 shadow-lg">
-                <a href="/" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
+              <div className="hidden md:flex items-center gap-4 lg:gap-6 px-6 lg:px-8 py-1.5 lg:py-2 rounded-full backdrop-blur-xl bg-white/10 border border-white/20 shadow-lg">
+                <a href="/" className="text-xs lg:text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
                   Home
                 </a>
-                <a href="/explore" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
+                <a href="/explore" className="text-xs lg:text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
                   History
                 </a>
-                <a href="/about" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
+                <a href="/about" className="text-xs lg:text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
                   About
                 </a>
                 <button onClick={() => {
                   const footer = document.querySelector('footer')
                   footer?.scrollIntoView({ behavior: 'smooth' })
-                }} className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors cursor-pointer">
+                }} className="text-xs lg:text-sm font-medium text-foreground/80 hover:text-primary transition-colors cursor-pointer">
                   Contact
                 </button>
               </div>

@@ -127,6 +127,18 @@
   }
 }
 
+/* Hero animation: hide elements until GSAP animates them in.
+   The class is added by an inline script before React hydrates,
+   so there is zero flash. Removed by GSAP after animation completes. */
+.hero-needs-anim [data-hero-logo] {
+  opacity: 0 !important;
+  transform: scale(0.3) !important;
+}
+.hero-needs-anim [data-hero-text] {
+  opacity: 0 !important;
+  transform: translateY(40px) !important;
+}
+
 @layer utilities {
   @keyframes rotate-slow {
     from {

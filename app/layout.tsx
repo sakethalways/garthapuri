@@ -33,6 +33,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={_playfairDisplay.variable} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: `try{if(!sessionStorage.getItem('hero-anim-played')){document.documentElement.classList.add('hero-needs-anim')}}catch(e){}` }} />
+      </head>
       <body className="font-sans antialiased">
         <div className="flex min-h-screen flex-col bg-background text-foreground">
           <LayoutClient />
