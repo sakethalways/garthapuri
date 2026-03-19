@@ -171,102 +171,116 @@
     animation: scale-in 0.4s ease-out;
   }
 
+  /* Desktop: 4-phase vertical slide cycle (12s)
+     Each item: slide up from below → stay → slide up out
+     Phase 1: 0-22%   tel logo
+     Phase 2: 25-47%  text first
+     Phase 3: 50-72%  eng logo
+     Phase 4: 75-97%  text second
+  */
   @keyframes cycle-logo-tel {
-    0% { opacity: 1; }
-    20% { opacity: 1; }
-    25% { opacity: 0; }
-    95% { opacity: 0; }
-    100% { opacity: 1; }
+    0%   { opacity: 0; transform: translateY(100%); }
+    3%   { opacity: 1; transform: translateY(0); }
+    20%  { opacity: 1; transform: translateY(0); }
+    23%  { opacity: 0; transform: translateY(-100%); }
+    /* hidden rest of cycle */
+    24%  { opacity: 0; transform: translateY(100%); }
+    97%  { opacity: 0; transform: translateY(100%); }
+    100% { opacity: 0; transform: translateY(100%); }
   }
-
   .animate-cycle-logo-tel {
-    animation: cycle-logo-tel 12s ease-in-out infinite;
+    animation: cycle-logo-tel 16s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   }
 
   @keyframes cycle-text-first {
-    0% { opacity: 0; }
-    20% { opacity: 0; }
-    25% { opacity: 1; }
-    45% { opacity: 1; }
-    50% { opacity: 0; }
-    100% { opacity: 0; }
+    0%   { opacity: 0; transform: translateY(100%); }
+    24%  { opacity: 0; transform: translateY(100%); }
+    27%  { opacity: 1; transform: translateY(0); }
+    45%  { opacity: 1; transform: translateY(0); }
+    48%  { opacity: 0; transform: translateY(-100%); }
+    49%  { opacity: 0; transform: translateY(100%); }
+    100% { opacity: 0; transform: translateY(100%); }
   }
-
   .animate-cycle-text-first {
-    animation: cycle-text-first 12s ease-in-out infinite;
+    animation: cycle-text-first 16s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   }
 
   @keyframes cycle-logo-eng {
-    0% { opacity: 0; }
-    45% { opacity: 0; }
-    50% { opacity: 1; }
-    70% { opacity: 1; }
-    75% { opacity: 0; }
-    100% { opacity: 0; }
+    0%   { opacity: 0; transform: translateY(100%); }
+    49%  { opacity: 0; transform: translateY(100%); }
+    52%  { opacity: 1; transform: translateY(0); }
+    70%  { opacity: 1; transform: translateY(0); }
+    73%  { opacity: 0; transform: translateY(-100%); }
+    74%  { opacity: 0; transform: translateY(100%); }
+    100% { opacity: 0; transform: translateY(100%); }
   }
-
   .animate-cycle-logo-eng {
-    animation: cycle-logo-eng 12s ease-in-out infinite;
+    animation: cycle-logo-eng 16s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   }
 
   @keyframes cycle-text-second {
-    0% { opacity: 0; }
-    70% { opacity: 0; }
-    75% { opacity: 1; }
-    92% { opacity: 1; }
-    97% { opacity: 0; }
-    100% { opacity: 0; }
+    0%   { opacity: 0; transform: translateY(100%); }
+    74%  { opacity: 0; transform: translateY(100%); }
+    77%  { opacity: 1; transform: translateY(0); }
+    94%  { opacity: 1; transform: translateY(0); }
+    97%  { opacity: 0; transform: translateY(-100%); }
+    98%  { opacity: 0; transform: translateY(100%); }
+    100% { opacity: 0; transform: translateY(100%); }
   }
-
   .animate-cycle-text-second {
-    animation: cycle-text-second 12s ease-in-out infinite;
+    animation: cycle-text-second 16s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   }
 
-  /* Mobile: 4-phase cycle (same as desktop, smaller text) */
+  /* Mobile: 4-phase vertical slide cycle (10s) */
   @keyframes cycle-logo-tel-m {
-    0% { opacity: 1; }
-    20% { opacity: 1; }
-    25% { opacity: 0; }
-    95% { opacity: 0; }
-    100% { opacity: 1; }
+    0%   { opacity: 0; transform: translateY(100%); }
+    3%   { opacity: 1; transform: translateY(0); }
+    20%  { opacity: 1; transform: translateY(0); }
+    23%  { opacity: 0; transform: translateY(-100%); }
+    24%  { opacity: 0; transform: translateY(100%); }
+    97%  { opacity: 0; transform: translateY(100%); }
+    100% { opacity: 0; transform: translateY(100%); }
   }
   .animate-cycle-logo-tel-m {
-    animation: cycle-logo-tel-m 10s ease-in-out infinite;
+    animation: cycle-logo-tel-m 14s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   }
 
   @keyframes cycle-text-first-m {
-    0% { opacity: 0; }
-    20% { opacity: 0; }
-    25% { opacity: 1; }
-    45% { opacity: 1; }
-    50% { opacity: 0; }
-    100% { opacity: 0; }
+    0%   { opacity: 0; transform: translateY(100%); }
+    24%  { opacity: 0; transform: translateY(100%); }
+    27%  { opacity: 1; transform: translateY(0); }
+    45%  { opacity: 1; transform: translateY(0); }
+    48%  { opacity: 0; transform: translateY(-100%); }
+    49%  { opacity: 0; transform: translateY(100%); }
+    100% { opacity: 0; transform: translateY(100%); }
   }
   .animate-cycle-text-first-m {
-    animation: cycle-text-first-m 10s ease-in-out infinite;
+    animation: cycle-text-first-m 14s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   }
 
   @keyframes cycle-logo-eng-m {
-    0% { opacity: 0; }
-    45% { opacity: 0; }
-    50% { opacity: 1; }
-    70% { opacity: 1; }
-    75% { opacity: 0; }
-    100% { opacity: 0; }
+    0%   { opacity: 0; transform: translateY(100%); }
+    49%  { opacity: 0; transform: translateY(100%); }
+    52%  { opacity: 1; transform: translateY(0); }
+    70%  { opacity: 1; transform: translateY(0); }
+    73%  { opacity: 0; transform: translateY(-100%); }
+    74%  { opacity: 0; transform: translateY(100%); }
+    100% { opacity: 0; transform: translateY(100%); }
   }
   .animate-cycle-logo-eng-m {
-    animation: cycle-logo-eng-m 10s ease-in-out infinite;
+    animation: cycle-logo-eng-m 14s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   }
 
   @keyframes cycle-text-second-m {
-    0% { opacity: 0; }
-    70% { opacity: 0; }
-    75% { opacity: 1; }
-    92% { opacity: 1; }
-    97% { opacity: 0; }
-    100% { opacity: 0; }
+    0%   { opacity: 0; transform: translateY(100%); }
+    74%  { opacity: 0; transform: translateY(100%); }
+    77%  { opacity: 1; transform: translateY(0); }
+    94%  { opacity: 1; transform: translateY(0); }
+    97%  { opacity: 0; transform: translateY(-100%); }
+    98%  { opacity: 0; transform: translateY(100%); }
+    100% { opacity: 0; transform: translateY(100%); }
   }
   .animate-cycle-text-second-m {
-    animation: cycle-text-second-m 10s ease-in-out infinite;
+    animation: cycle-text-second-m 14s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   }
 }
