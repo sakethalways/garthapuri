@@ -246,7 +246,7 @@ function LayoutClientContent() {
                   ref={(el) => { menuItemsRef.current[i + 2] = el }}
                   href={link.href}
                   onClick={closeMenu}
-                  className="w-full max-w-xs py-2.5 text-center text-base font-['Playfair_Display'] font-medium text-foreground/80 hover:text-primary rounded-xl hover:bg-primary/5 transition-all duration-200 tracking-wide"
+                  className="w-full max-w-xs py-2.5 text-center text-lg sm:text-base font-['Playfair_Display'] font-medium text-foreground/80 hover:text-primary rounded-xl hover:bg-primary/5 transition-all duration-200 tracking-wide"
                 >
                   {link.label}
                 </a>
@@ -262,7 +262,7 @@ function LayoutClientContent() {
                     footer?.scrollIntoView({ behavior: 'smooth' })
                   }, 400)
                 }}
-                className="w-full max-w-xs py-2.5 text-center text-base font-['Playfair_Display'] font-medium text-foreground/80 hover:text-primary rounded-xl hover:bg-primary/5 transition-all duration-200 tracking-wide cursor-pointer"
+                className="w-full max-w-xs py-2.5 text-center text-lg sm:text-base font-['Playfair_Display'] font-medium text-foreground/80 hover:text-primary rounded-xl hover:bg-primary/5 transition-all duration-200 tracking-wide cursor-pointer"
               >
                 Contact
               </button>

@@ -99,15 +99,16 @@ colour codes :
 | Colour name (approx) | RGB         | Hex code 
 | -------------------- | ----------- | -------- 
 | White                | 255,255,255 | #FFFFFF 
-| Orange body          | 211,123,49  | #D37B31 
-| Light green cloth    | 172,197,44  | #ACC52C  
+| Orange         | 211,123,49  | #D37B31 
+| Light green  | 172,197,44  | #ACC52C  
 | Light grey/white     | 246,246,246 | #F6F6F6  
 | Red                  | 207,32,47   | #CF202F 
 | Darker orange shade  | 213,122,49  | #D57A31 
 | Darker orange shade  | 211,124,47  | #D37C2F  
-| Black (outline/eye)  | 1,1,1       | #010101 
+| Black   | 1,1,1       | #010101 
 | Light grey/white     | 245,245,245 | #F5F5F5  
 | Darker orange shade  | 210,124,49  | #D27C31  
+| Bright yellow        | 216,188,45  | #D8BC2D
 
 
 
