@@ -30,60 +30,60 @@ export default function AboutPage() {
 
             {/* Ancient History */}
             <div className="space-y-4">
-              <h3 className="text-lg sm:text-xl md:text-2xl font-['Playfair_Display'] font-bold text-[#8d3c02]">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-[#8d3c02]" style={{ fontFamily: 'var(--font-mandali), sans-serif' }}>
                 గుంటూరు చరిత్ర (Guntur History)
               </h3>
-              <p className="text-sm sm:text-base md:text-lg text-[#6b5d4f] leading-relaxed">
+              <p className="text-sm sm:text-base md:text-lg text-[#6b5d4f] leading-relaxed" style={{ fontFamily: 'var(--font-noto-telugu), sans-serif' }}>
                 గుంటూరు యొక్క సంస్కృతి, చరిత్ర చాలా గొప్పది. ఈ ప్రాంతం ప్రాచీన కాలంలోనే ప్రముఖ కేంద్రంగా ఉండేది. గుంటూరు పట్టణం స్థాపనకు సుమారు 50 సంవత్సరాల కంటే ఎక్కువ చరిత్ర ఉంది. గుంటూరు ప్రాంతం సాతవాహనుల పాలనలో ముఖ్యమైన వాణిజ్య కేంద్రంగా అభివృద్ధి చెందింది (1922–299 CE కాలంలో). తరువాతి శతాబ్దాలలో 1147 AD నుండి 1158 AD మధ్యకాలంలో గుంటూరు ప్రాముఖ్యత పెరిగింది.
               </p>
             </div>
 
             {/* Buddhist Influence */}
             <div className="space-y-4">
-              <h3 className="text-lg sm:text-xl md:text-2xl font-['Playfair_Display'] font-bold text-[#8d3c02]">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-[#8d3c02]" style={{ fontFamily: 'var(--font-mandali), sans-serif' }}>
                 బౌద్ధ ప్రభావం (Buddhist Influence)
               </h3>
-              <p className="text-sm sm:text-base md:text-lg text-[#6b5d4f] leading-relaxed">
+              <p className="text-sm sm:text-base md:text-lg text-[#6b5d4f] leading-relaxed" style={{ fontFamily: 'var(--font-noto-telugu), sans-serif' }}>
                 భారత దేశంలో బౌద్ధమతం విస్తరించినప్పుడు గుంటూరు ప్రాంతం కూడా ప్రభావితమైంది. అమరావతి ప్రాంతం ముఖ్యమైన బౌద్ధ కేంద్రంగా నిలిచింది.
               </p>
             </div>
 
             {/* Satavahanas */}
             <div className="space-y-4">
-              <h3 className="text-lg sm:text-xl md:text-2xl font-['Playfair_Display'] font-bold text-[#8d3c02]">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-[#8d3c02]" style={{ fontFamily: 'var(--font-mandali), sans-serif' }}>
                 సాతవాహనులు (Satavahanas)
               </h3>
-              <p className="text-sm sm:text-base md:text-lg text-[#6b5d4f] leading-relaxed">
+              <p className="text-sm sm:text-base md:text-lg text-[#6b5d4f] leading-relaxed" style={{ fontFamily: 'var(--font-noto-telugu), sans-serif' }}>
                 క్రీ.పూ. 2వ శతాబ్దం నుండి క్రీ.శ. 3వ శతాబ్దం వరకు సాతవాహనులు ఈ ప్రాంతాన్ని పాలించారు. వారి కాలంలో అమరావతి ప్రధాన కేంద్రంగా అభివృద్ధి చెందింది.
               </p>
             </div>
 
             {/* Other Dynasties */}
             <div className="space-y-4">
-              <h3 className="text-lg sm:text-xl md:text-2xl font-['Playfair_Display'] font-bold text-[#8d3c02]">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-[#8d3c02]" style={{ fontFamily: 'var(--font-mandali), sans-serif' }}>
                 ఇతరు రాజవంశాలు (Other Dynasties)
               </h3>
-              <p className="text-sm sm:text-base md:text-lg text-[#6b5d4f] leading-relaxed">
+              <p className="text-sm sm:text-base md:text-lg text-[#6b5d4f] leading-relaxed" style={{ fontFamily: 'var(--font-noto-telugu), sans-serif' }}>
                 గుంటూరు ప్రాంతాన్ని ఇక్ష్వాకులు, విష్ణుకుండినులు, ఆంధ్ర చాళుక్యులు, కోలాలు, చాళుక్యులు, కకతీయులు తదితర రాజవంశాలు పాలించాయి. 12వ శతాబ్దంలో పాళ్నాడు యుద్ధం గుంటూరు ప్రాంతంలో జరిగింది. 1180లో గుంటూరు ప్రాంతం పలు రాజకీయ సంఘటనలకు కేంద్రంగా మారింది.
               </p>
             </div>
 
             {/* Muslim and British Rule */}
             <div className="space-y-4">
-              <h3 className="text-lg sm:text-xl md:text-2xl font-['Playfair_Display'] font-bold text-[#8d3c02]">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-[#8d3c02]" style={{ fontFamily: 'var(--font-mandali), sans-serif' }}>
                 ముస్లింలు మరియు బ్రిటిష్ పాలన (Muslim and British Rule)
               </h3>
-              <p className="text-sm sm:text-base md:text-lg text-[#6b5d4f] leading-relaxed">
+              <p className="text-sm sm:text-base md:text-lg text-[#6b5d4f] leading-relaxed" style={{ fontFamily: 'var(--font-noto-telugu), sans-serif' }}>
                 1687లో ఔరంగజేబు ఆక్రమించినప్పుడు గుంటూరు ముఘల్ సామ్రాజ్యంలో భాగమైంది. తరువాత గుంటూరు ఈస్ట్ ఇండియా కంపెనీ ఆధీనంలోకి వెళ్లి, 1788లో మద్రాస్ ప్రెసిడెన్సీలో చేర్చబడింది.
               </p>
             </div>
 
             {/* Independence Movement */}
             <div className="space-y-4">
-              <h3 className="text-lg sm:text-xl md:text-2xl font-['Playfair_Display'] font-bold text-[#8d3c02]">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-[#8d3c02]" style={{ fontFamily: 'var(--font-mandali), sans-serif' }}>
                 స్వాతంత్ర్య ఉద్యమం (Independence Movement)
               </h3>
-              <p className="text-sm sm:text-base md:text-lg text-[#6b5d4f] leading-relaxed">
+              <p className="text-sm sm:text-base md:text-lg text-[#6b5d4f] leading-relaxed" style={{ fontFamily: 'var(--font-noto-telugu), sans-serif' }}>
                 గుంటూరు స్వాతంత్ర్య ఉద్యమంలో ముఖ్యపాత్ర పోషించింది. 1953లో గుంటూరు ఆంధ్ర రాష్ట్రంలో భాగమై, తరువాత ఏకీకృత ఆంధ్రప్రదేశ్‌లో చేరింది.
               </p>
             </div>

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Geist, Geist_Mono, Playfair_Display } from 'next/font/google'
+import { Geist, Geist_Mono, Playfair_Display, Mandali, Noto_Sans_Telugu } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { LayoutClient } from './layout-client'
 import { FooterClient } from './footer-client'
@@ -8,6 +8,8 @@ import './globals.css'
 const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 const _playfairDisplay = Playfair_Display({ subsets: ["latin"], variable: '--font-playfair' });
+const _mandali = Mandali({ weight: '400', subsets: ["telugu"], variable: '--font-mandali' });
+const _notoSansTelugu = Noto_Sans_Telugu({ subsets: ["telugu"], variable: '--font-noto-telugu' });
 
 export const metadata: Metadata = {
   title: 'Garthapuri - The Spice Land of India',
@@ -32,7 +34,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={_playfairDisplay.variable} suppressHydrationWarning>
+    <html lang="en" className={`${_playfairDisplay.variable} ${_mandali.variable} ${_notoSansTelugu.variable}`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: `try{if(!sessionStorage.getItem('hero-anim-played')){document.documentElement.classList.add('hero-needs-anim')}}catch(e){}` }} />
       </head>
