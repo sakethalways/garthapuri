@@ -139,6 +139,14 @@
   transform: translateY(40px) !important;
 }
 
+/* About page: hide header elements via CSS so there's no flash before GSAP runs */
+[data-about-header] {
+  opacity: 0;
+  transform: translateY(30px);
+}
+/* Once GSAP has run, it sets inline styles that override these.
+   For scroll-triggered elements, they start offscreen so no CSS needed. */
+
 @layer utilities {
   @keyframes rotate-slow {
     from {
