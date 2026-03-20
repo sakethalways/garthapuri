@@ -226,55 +226,58 @@ function LayoutClientContent() {
           {/* Menu Panel - slides from top */}
           <div
             ref={overlayRef}
-            className="absolute top-0 left-0 right-0 bg-gradient-to-b from-background via-background to-background/95 shadow-2xl border-b-2 border-secondary/30 pt-8 pb-6 px-5"
+            className="absolute top-0 left-0 right-0 bg-gradient-to-b from-background via-background to-background/95 shadow-2xl border-b-2 border-secondary/30 pt-8 pb-6 px-5 overflow-hidden"
           >
-            <div className="flex flex-col items-center gap-1">
-              {/* Divider */}
-              <div
-                ref={(el) => { menuItemsRef.current[1] = el }}
-                className="w-16 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent mb-1"
-              />
+            <div className="relative flex flex-col items-center gap-1">
+              {/* Nav links area with chakra background */}
+              <div className="relative w-full flex flex-col items-center">
+                {/* Rotating chakra - centered between dividers */}
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <Image
+                    src="/chakra1.png"
+                    alt=""
+                    width={400}
+                    height={400}
+                    className="w-[80vw] max-w-[360px] h-auto opacity-[0.06] animate-[rotate-slow_25s_linear_infinite]"
+                    aria-hidden="true"
+                  />
+                </div>
 
-              {/* Nav Links */}
-              {[
-                { href: '/', label: 'Home' },
-                { href: '/explore', label: 'History' },
-                { href: '/about', label: 'About' },
-              ].map((link, i) => (
-                <a
-                  key={link.href}
-                  ref={(el) => { menuItemsRef.current[i + 2] = el }}
-                  href={link.href}
-                  onClick={closeMenu}
-                  className="w-full max-w-xs py-2.5 text-center text-lg sm:text-base font-['Playfair_Display'] font-medium text-foreground/80 hover:text-primary rounded-xl hover:bg-primary/5 transition-all duration-200 tracking-wide"
+                {/* Nav Links */}
+                {[
+                  { href: '/', label: 'Home' },
+                  { href: '/explore', label: 'History' },
+                  { href: '/about', label: 'About' },
+                ].map((link, i) => (
+                  <a
+                    key={link.href}
+                    ref={(el) => { menuItemsRef.current[i + 2] = el }}
+                    href={link.href}
+                    onClick={closeMenu}
+                    className="relative z-10 w-full max-w-xs py-2.5 text-center text-lg sm:text-base font-['Playfair_Display'] font-medium text-foreground/80 hover:text-primary rounded-xl hover:bg-primary/5 transition-all duration-200 tracking-wide"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+
+                {/* Contact button */}
+                <button
+                  ref={(el) => { menuItemsRef.current[5] = el }}
+                  onClick={() => {
+                    closeMenu()
+                    setTimeout(() => {
+                      const footer = document.querySelector('footer')
+                      footer?.scrollIntoView({ behavior: 'smooth' })
+                    }, 400)
+                  }}
+                  className="relative z-10 w-full max-w-xs py-2.5 text-center text-lg sm:text-base font-['Playfair_Display'] font-medium text-foreground/80 hover:text-primary rounded-xl hover:bg-primary/5 transition-all duration-200 tracking-wide cursor-pointer"
                 >
-                  {link.label}
-                </a>
-              ))}
-
-              {/* Contact button */}
-              <button
-                ref={(el) => { menuItemsRef.current[5] = el }}
-                onClick={() => {
-                  closeMenu()
-                  setTimeout(() => {
-                    const footer = document.querySelector('footer')
-                    footer?.scrollIntoView({ behavior: 'smooth' })
-                  }, 400)
-                }}
-                className="w-full max-w-xs py-2.5 text-center text-lg sm:text-base font-['Playfair_Display'] font-medium text-foreground/80 hover:text-primary rounded-xl hover:bg-primary/5 transition-all duration-200 tracking-wide cursor-pointer"
-              >
-                Contact
-              </button>
-
-              {/* Divider */}
-              <div
-                ref={(el) => { menuItemsRef.current[6] = el }}
-                className="w-16 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent my-2"
-              />
+                  Contact
+                </button>
+              </div>
 
               {/* Order Now CTA */}
-              <div ref={(el) => { menuItemsRef.current[7] = el }}>
+              <div ref={(el) => { menuItemsRef.current[7] = el }} className="mt-4">
                 <Button
                   onClick={() => {
                     closeMenu()
