@@ -139,6 +139,12 @@
   transform: translateY(40px) !important;
 }
 
+/* Lightweight CSS-only entrance animation for menu page (no GSAP overhead) */
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* About page: hide header elements via CSS so there's no flash before GSAP runs */
 [data-about-header] {
   opacity: 0;
@@ -146,6 +152,8 @@
 }
 /* Once GSAP has run, it sets inline styles that override these.
    For scroll-triggered elements, they start offscreen so no CSS needed. */
+
+
 
 @layer utilities {
   @keyframes rotate-slow {

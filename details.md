@@ -156,3 +156,11 @@ HISTORY OF
 GARTHAPURI
 ANCIENT NAME OF GUNTUR
 
+
+The background in the first (light) version is a solid pale peach / warm light pinkish-beige color.
+Exact hex code for the background: #F5E9D9
+(This is a very close match to the soft, desaturated warm tone shown in the light/peach variant. It has subtle cream undertones typical of spice-themed Indian branding.)
+The second (dark) version uses a richer, deeper maroon / warm brick-red background.
+Exact hex code for the background: #8B2F2F to #A13F3F range, with the central / most prominent area being approximately #9C3A3A
+(This is a classic deep Indian red-maroon often used in traditional/spice branding, with a slight warm brownish undertone.)
+Regarding texture/gradien

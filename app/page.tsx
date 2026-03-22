@@ -50,17 +50,6 @@ export default function Home() {
     }
   }
 
-  // Preload menu page product images in background so /menu loads instantly
-  useEffect(() => {
-    const imagesToPreload = [
-      '/Natukodi telugu.jpg.jpeg',
-      '/Sunnundalu telugu.jpg.jpeg',
-    ]
-    imagesToPreload.forEach(src => {
-      const img = new window.Image()
-      img.src = src
-    })
-  }, [])
 
   // Hero entrance animation — only on first visit per session
   // CSS class `hero-needs-anim` is added by inline script in layout.tsx
@@ -385,10 +374,11 @@ export default function Home() {
                       <div
                         key={item.name}
                         ref={(el) => { foodItemRefs.current[index] = el }}
-                        className="absolute w-[25%] h-[25%] drop-shadow-lg"
+                        className="absolute w-[25%] h-[25%]"
                         style={{
                           left: `${x - itemSize / 2}%`,
                           top: `${y - itemSize / 2}%`,
+                          filter: 'drop-shadow(0 6px 12px rgba(44, 36, 22, 0.4)) drop-shadow(0 2px 4px rgba(44, 36, 22, 0.25))',
                         }}
                       >
                         <Image
