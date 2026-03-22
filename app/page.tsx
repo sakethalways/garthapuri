@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import gsap from 'gsap'
@@ -8,9 +8,21 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
+const foodItems = [
+  { src: '/chicken biryani.png', name: 'Chicken Biryani' },
+  { src: '/salad.png', name: 'Fresh Salad' },
+  { src: '/snacks.png', name: 'Snacks Platter' },
+  { src: '/sunundalu.png', name: 'Sunundalu' },
+]
+
 export default function Home() {
-  const menuCardsRef = useRef<(HTMLDivElement | null)[]>([])
   const menuSectionRef = useRef<HTMLDivElement>(null)
+  const tableRef = useRef<HTMLDivElement>(null)
+  const foodRingRef = useRef<HTMLDivElement>(null)
+  const foodItemRefs = useRef<(HTMLDivElement | null)[]>([])
+  const foodNameLabelRef = useRef<HTMLParagraphElement>(null)
+  const [activeFoodName, setActiveFoodName] = useState('')
+
 
   // Hero animation refs
   const heroLogoMobileRef = useRef<HTMLDivElement>(null)
@@ -103,62 +115,74 @@ export default function Home() {
     return () => { tl.kill() }
   }, [])
 
-  // Menu cards scroll animation
+  // Stepped rotation: rotate 90° → pause → hover LEFT item + show name → repeat seamlessly
   useEffect(() => {
-    if (menuCardsRef.current.length > 0) {
-      menuCardsRef.current.forEach((card, index) => {
-        if (card) {
-          gsap.set(card, {
-            opacity: 0,
-            y: 60,
-            scale: 0.85,
-            rotationZ: -3
-          })
+    const ring = foodRingRef.current
+    if (!ring) return
 
-          gsap.to(card, {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            rotationZ: 0,
-            duration: 0.8,
-            delay: index * 0.15,
-            ease: 'elastic.out(1, 0.5)',
-            scrollTrigger: {
-              trigger: menuSectionRef.current,
-              start: 'top 30%',
-              end: 'top center',
-              scrub: false,
-              once: true
-            }
-          })
+    const itemOrder = [2, 3, 0, 1]
+    let cumRotation = 0
+    let killed = false
 
-          card.addEventListener('mouseenter', () => {
-            gsap.to(card, {
-              scale: 1.08,
-              y: -10,
-              boxShadow: '0 25px 50px rgba(141, 60, 2, 0.3)',
-              duration: 0.3,
-              ease: 'power2.out'
-            })
-          })
+    gsap.set(ring, { transformOrigin: '50% 50%' })
+    foodItemRefs.current.forEach(el => {
+      if (el) gsap.set(el, { transformOrigin: '50% 50%' })
+    })
 
-          card.addEventListener('mouseleave', () => {
-            gsap.to(card, {
-              scale: 1,
-              y: 0,
-              boxShadow: '0 0px 0px rgba(0, 0, 0, 0)',
-              duration: 0.3,
-              ease: 'power2.out'
-            })
-          })
+    const runStep = (step: number) => {
+      if (killed) return
+
+      const itemIndex = itemOrder[step % 4]
+      const itemName = foodItems[itemIndex].name
+
+      const tl = gsap.timeline({
+        onComplete: () => { if (!killed) runStep(step + 1) }
+      })
+
+      if (step > 0) {
+        cumRotation -= 90
+        tl.to(ring, { rotation: cumRotation, duration: 0.9, ease: 'power2.inOut' })
+        tl.to(foodItemRefs.current.filter(Boolean), { rotation: -cumRotation, duration: 0.9, ease: 'power2.inOut' }, '<')
+      }
+
+      tl.call(() => setActiveFoodName(itemName))
+      tl.fromTo(foodNameLabelRef.current, { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.35, ease: 'power2.out' })
+      tl.to(foodItemRefs.current[itemIndex], { scale: 1.25, duration: 0.35, ease: 'power2.out' }, '<')
+      tl.to({}, { duration: 1.3 })
+      tl.to(foodItemRefs.current[itemIndex], { scale: 1, duration: 0.25, ease: 'power2.in' })
+      tl.to(foodNameLabelRef.current, { opacity: 0, x: -20, duration: 0.25, ease: 'power2.in' }, '<')
+    }
+
+    runStep(0)
+
+    return () => {
+      killed = true
+      gsap.killTweensOf(ring)
+      foodItemRefs.current.forEach(el => { if (el) gsap.killTweensOf(el) })
+      if (foodNameLabelRef.current) gsap.killTweensOf(foodNameLabelRef.current)
+    }
+  }, [])
+
+  // Menu section scroll entrance animation
+  useEffect(() => {
+    const table = tableRef.current
+    if (table) {
+      gsap.set(table, { opacity: 0, scale: 0.8 })
+      gsap.to(table, {
+        opacity: 1,
+        scale: 1,
+        duration: 1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: menuSectionRef.current,
+          start: 'top 70%',
+          once: true,
         }
       })
     }
 
     return () => {
-      menuCardsRef.current.forEach(card => {
-        if (card) gsap.killTweensOf(card)
-      })
+      if (table) gsap.killTweensOf(table)
     }
   }, [])
 
@@ -274,7 +298,7 @@ export default function Home() {
         </section>
 
       {/* Menu Highlights Section */}
-      <section id="menu-highlights" ref={menuSectionRef} className="bg-gradient-to-b from-[#d4af37]/20 to-[#d4af37]/10 py-4 sm:py-6 md:py-8 lg:py-10 pb-12 sm:pb-20 md:pb-28 lg:pb-32">
+      <section id="menu-highlights" ref={menuSectionRef} className="bg-gradient-to-b from-[#d4af37]/20 to-[#d4af37]/10 py-8 sm:py-12 md:py-16 lg:py-20 overflow-hidden">
         <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
           {/* Section Header */}
           <div className="text-center space-y-2 sm:space-y-3 mb-8 sm:mb-12 md:mb-16">
@@ -297,98 +321,65 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Menu Categories Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 md:gap-6 lg:gap-8">
-            {/* Morning */}
-            <div
-              ref={(el) => { menuCardsRef.current[0] = el }}
-              onClick={handleWhatsAppRedirect}
-              className="bg-white rounded-2xl p-4 sm:p-5 md:p-6 lg:p-8 text-center hover:shadow-lg transition-shadow duration-300 cursor-pointer"
-            >
-              <div className="flex justify-center mb-2 sm:mb-3 md:mb-4">
-                <Image
-                  src="/thali.png"
-                  alt="Morning meals"
-                  width={100}
-                  height={100}
-                  className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"
-                />
-              </div>
-              <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-['Playfair_Display'] font-bold text-primary mb-1 sm:mb-2">
-                Morning
-              </h3>
-              <p className="text-xs sm:text-sm md:text-base text-muted-foreground">
-                Fresh starts &amp; energizing flavors
+          {/* Dining Table with Food Carousel — unified for all screen sizes */}
+          <div className="relative flex flex-row items-center min-h-[300px] sm:min-h-[360px] md:min-h-[420px] lg:min-h-0 lg:justify-between lg:gap-4">
+            {/* Left: food name + View More button */}
+            <div className="flex flex-col items-start gap-3 sm:gap-4 lg:gap-5 z-10 flex-1 pl-2 sm:pl-4 lg:pl-0">
+              <p
+                ref={foodNameLabelRef}
+                className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-['Playfair_Display'] font-bold text-primary opacity-0 min-h-[1.5em]"
+              >
+                {activeFoodName}
               </p>
+              <Button
+                onClick={() => window.location.href = '/explore'}
+                className="px-6 sm:px-8 lg:px-10 py-2.5 sm:py-3 lg:py-4 text-sm sm:text-base lg:text-xl bg-primary text-primary-foreground rounded-full hover:bg-primary/90 transition-all duration-300 font-['Playfair_Display']"
+              >
+                View More
+              </Button>
             </div>
 
-            {/* Afternoon */}
-            <div
-              ref={(el) => { menuCardsRef.current[1] = el }}
-              onClick={handleWhatsAppRedirect}
-              className="bg-white rounded-2xl p-4 sm:p-5 md:p-6 lg:p-8 text-center hover:shadow-lg transition-shadow duration-300 cursor-pointer"
-            >
-              <div className="flex justify-center mb-2 sm:mb-3 md:mb-4">
+            {/* Right: dining table — half off-screen on mobile, full on desktop */}
+            <div className="absolute right-0 lg:relative lg:right-auto -mr-[160px] sm:-mr-[170px] md:-mr-[180px] lg:mr-0 flex justify-end">
+              <div ref={tableRef} className="relative w-[300px] h-[300px] sm:w-[360px] sm:h-[360px] md:w-[420px] md:h-[420px] lg:w-[460px] lg:h-[460px] xl:w-[540px] xl:h-[540px] 2xl:w-[600px] 2xl:h-[600px]">
                 <Image
-                  src="/thali.png"
-                  alt="Afternoon meals"
-                  width={100}
-                  height={100}
-                  className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"
+                  src="/round dining table top.png"
+                  alt="Dining table"
+                  fill
+                  className="object-contain drop-shadow-2xl"
                 />
+                {/* All food items rotating as a group */}
+                <div
+                  ref={foodRingRef}
+                  className="absolute inset-[15%]"
+                >
+                  {foodItems.map((item, index) => {
+                    const angle = (index * 90) * (Math.PI / 180)
+                    const radius = 32
+                    const x = 50 + radius * Math.cos(angle)
+                    const y = 50 + radius * Math.sin(angle)
+                    const itemSize = 25
+                    return (
+                      <div
+                        key={item.name}
+                        ref={(el) => { foodItemRefs.current[index] = el }}
+                        className="absolute w-[25%] h-[25%] drop-shadow-lg"
+                        style={{
+                          left: `${x - itemSize / 2}%`,
+                          top: `${y - itemSize / 2}%`,
+                        }}
+                      >
+                        <Image
+                          src={item.src}
+                          alt={item.name}
+                          fill
+                          className="object-contain rounded-full"
+                        />
+                      </div>
+                    )
+                  })}
+                </div>
               </div>
-              <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-['Playfair_Display'] font-bold text-primary mb-1 sm:mb-2">
-                Afternoon
-              </h3>
-              <p className="text-xs sm:text-sm md:text-base text-muted-foreground">
-                Refreshing meals &amp; light bites
-              </p>
-            </div>
-
-            {/* Evening */}
-            <div
-              ref={(el) => { menuCardsRef.current[2] = el }}
-              onClick={handleWhatsAppRedirect}
-              className="bg-white rounded-2xl p-4 sm:p-5 md:p-6 lg:p-8 text-center hover:shadow-lg transition-shadow duration-300 cursor-pointer"
-            >
-              <div className="flex justify-center mb-2 sm:mb-3 md:mb-4">
-                <Image
-                  src="/thali.png"
-                  alt="Evening meals"
-                  width={100}
-                  height={100}
-                  className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"
-                />
-              </div>
-              <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-['Playfair_Display'] font-bold text-primary mb-1 sm:mb-2">
-                Evening
-              </h3>
-              <p className="text-xs sm:text-sm md:text-base text-muted-foreground">
-                Comfort food &amp; beverages
-              </p>
-            </div>
-
-            {/* Dinner */}
-            <div
-              ref={(el) => { menuCardsRef.current[3] = el }}
-              onClick={handleWhatsAppRedirect}
-              className="bg-white rounded-2xl p-4 sm:p-5 md:p-6 lg:p-8 text-center hover:shadow-lg transition-shadow duration-300 cursor-pointer"
-            >
-              <div className="flex justify-center mb-2 sm:mb-3 md:mb-4">
-                <Image
-                  src="/thali.png"
-                  alt="Dinner meals"
-                  width={100}
-                  height={100}
-                  className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"
-                />
-              </div>
-              <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-['Playfair_Display'] font-bold text-primary mb-1 sm:mb-2">
-                Dinner
-              </h3>
-              <p className="text-xs sm:text-sm md:text-base text-muted-foreground">
-                Exquisite dining experiences
-              </p>
             </div>
           </div>
         </div>
