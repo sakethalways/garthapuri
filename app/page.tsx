@@ -205,7 +205,7 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#f5e9d9] via-[#f8efe3] to-[#f0ddc8] -mt-14 sm:-mt-24 pb-0 sm:pb-16 md:pb-20 lg:pb-24">
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#f5e9d9] via-[#f8efe3] to-[#f0ddc8] mt-0 sm:-mt-24 pb-0 sm:pb-16 md:pb-20 lg:pb-24">
 
           {/* === MOBILE: Full-screen video hero === */}
           <div className="sm:hidden relative w-full h-[100svh]">
