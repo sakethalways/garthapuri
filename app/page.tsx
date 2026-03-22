@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -48,6 +49,18 @@ export default function Home() {
       menuSection?.scrollIntoView({ behavior: 'smooth' })
     }
   }
+
+  // Preload menu page product images in background so /menu loads instantly
+  useEffect(() => {
+    const imagesToPreload = [
+      '/Natukodi telugu.jpg.jpeg',
+      '/Sunnundalu telugu.jpg.jpeg',
+    ]
+    imagesToPreload.forEach(src => {
+      const img = new window.Image()
+      img.src = src
+    })
+  }, [])
 
   // Hero entrance animation — only on first visit per session
   // CSS class `hero-needs-anim` is added by inline script in layout.tsx
@@ -337,12 +350,13 @@ export default function Home() {
               >
                 {activeFoodName}
               </p>
-              <Button
-                onClick={() => window.location.href = '/menu'}
-                className="px-6 sm:px-8 lg:px-10 py-2.5 sm:py-3 lg:py-4 text-sm sm:text-base lg:text-xl bg-primary text-primary-foreground rounded-full hover:bg-primary/90 transition-all duration-300 font-['Playfair_Display']"
-              >
-                View More
-              </Button>
+              <Link href="/menu" prefetch={true}>
+                <Button
+                  className="px-6 sm:px-8 lg:px-10 py-2.5 sm:py-3 lg:py-4 text-sm sm:text-base lg:text-xl bg-primary text-primary-foreground rounded-full hover:bg-primary/90 transition-all duration-300 font-['Playfair_Display']"
+                >
+                  View More
+                </Button>
+              </Link>
             </div>
 
             {/* Right: dining table — half off-screen on mobile, full on desktop */}

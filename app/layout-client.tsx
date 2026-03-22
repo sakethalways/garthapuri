@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useCallback, memo } from 'react'
 import { Menu, X } from 'lucide-react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import gsap from 'gsap'
 
@@ -177,18 +178,18 @@ function LayoutClientContent() {
             {/* Center Navigation Container - Liquid Glass Effect */}
             <div className="absolute left-1/2 transform -translate-x-1/2">
               <div className="hidden md:flex items-center gap-4 lg:gap-6 px-6 lg:px-8 py-1.5 lg:py-2 rounded-full backdrop-blur-xl bg-white/10 border border-white/20 shadow-lg">
-                <a href="/" className="text-xs lg:text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
+                <Link href="/" className="text-xs lg:text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
                   Home
-                </a>
-                <a href="/menu" className="text-xs lg:text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
+                </Link>
+                <Link href="/menu" prefetch={true} className="text-xs lg:text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
                   Menu
-                </a>
-                <a href="/explore" className="text-xs lg:text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
+                </Link>
+                <Link href="/explore" className="text-xs lg:text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
                   History
-                </a>
-                <a href="/about" className="text-xs lg:text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
+                </Link>
+                <Link href="/about" className="text-xs lg:text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
                   About
-                </a>
+                </Link>
                 <button onClick={() => {
                   const footer = document.querySelector('footer')
                   footer?.scrollIntoView({ behavior: 'smooth' })
@@ -254,15 +255,16 @@ function LayoutClientContent() {
                   { href: '/explore', label: 'History' },
                   { href: '/about', label: 'About' },
                 ].map((link, i) => (
-                  <a
+                  <Link
                     key={link.href}
                     ref={(el) => { menuItemsRef.current[i + 2] = el }}
                     href={link.href}
+                    prefetch={true}
                     onClick={closeMenu}
                     className="relative z-10 w-full max-w-xs py-2.5 text-center text-lg sm:text-base font-['Playfair_Display'] font-medium text-foreground/80 hover:text-primary rounded-xl hover:bg-primary/5 transition-all duration-200 tracking-wide"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 ))}
 
                 {/* Contact button */}
