@@ -180,6 +180,9 @@ function LayoutClientContent() {
                 <a href="/" className="text-xs lg:text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
                   Home
                 </a>
+                <a href="/menu" className="text-xs lg:text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
+                  Menu
+                </a>
                 <a href="/explore" className="text-xs lg:text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
                   History
                 </a>
@@ -238,6 +241,7 @@ function LayoutClientContent() {
                     alt=""
                     width={400}
                     height={400}
+                    priority
                     className="w-[80vw] max-w-[360px] h-auto opacity-[0.06] animate-[rotate-slow_25s_linear_infinite]"
                     aria-hidden="true"
                   />
@@ -246,6 +250,7 @@ function LayoutClientContent() {
                 {/* Nav Links */}
                 {[
                   { href: '/', label: 'Home' },
+                  { href: '/menu', label: 'Menu' },
                   { href: '/explore', label: 'History' },
                   { href: '/about', label: 'About' },
                 ].map((link, i) => (

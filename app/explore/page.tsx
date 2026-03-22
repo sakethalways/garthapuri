@@ -255,8 +255,9 @@ export default function ExplorePage() {
                   alt={item.title}
                   width={400}
                   height={400}
-                  loading={index === 0 ? "eager" : "lazy"}
-                  className="w-full h-auto max-h-[250px] sm:max-h-[300px] md:max-h-[350px] lg:max-h-[400px] object-contain block"
+                  {...(index === 0 ? { priority: true } : { loading: 'lazy' as const })}
+                  className="max-h-[250px] sm:max-h-[300px] md:max-h-[350px] lg:max-h-[400px] object-contain block"
+                  style={{ width: '100%', height: 'auto' }}
                 />
               </div>
 

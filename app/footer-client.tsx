@@ -18,6 +18,7 @@ export function FooterClient() {
               alt="Garthapuri"
               width={100}
               height={100}
+              loading="lazy"
               className="w-16 h-16 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 object-contain"
             />
             <div className="text-center sm:text-left">
@@ -65,6 +66,7 @@ export function FooterClient() {
               alt="Footer decoration"
               width={200}
               height={200}
+              loading="lazy"
               className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 object-contain opacity-80"
             />
           </div>

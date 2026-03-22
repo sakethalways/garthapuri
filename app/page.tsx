@@ -40,8 +40,13 @@ export default function Home() {
   }
 
   const scrollToMenu = () => {
-    const menuSection = document.getElementById('menu-highlights')
-    menuSection?.scrollIntoView({ behavior: 'smooth' })
+    const diningTable = document.getElementById('menu-dining-table')
+    if (diningTable) {
+      diningTable.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    } else {
+      const menuSection = document.getElementById('menu-highlights')
+      menuSection?.scrollIntoView({ behavior: 'smooth' })
+    }
   }
 
   // Hero entrance animation — only on first visit per session
@@ -308,6 +313,7 @@ export default function Home() {
                 alt="Menu Highlights"
                 width={100}
                 height={100}
+                priority
                 className="w-16 h-16 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 object-contain"
               />
             </div>
@@ -322,7 +328,7 @@ export default function Home() {
           </div>
 
           {/* Dining Table with Food Carousel — unified for all screen sizes */}
-          <div className="relative flex flex-row items-center min-h-[300px] sm:min-h-[360px] md:min-h-[420px] lg:min-h-0 lg:justify-between lg:gap-4">
+          <div id="menu-dining-table" className="relative flex flex-row items-center min-h-[300px] sm:min-h-[360px] md:min-h-[420px] lg:min-h-0 lg:justify-between lg:gap-4">
             {/* Left: food name + View More button */}
             <div className="flex flex-col items-start gap-3 sm:gap-4 lg:gap-5 z-10 flex-1 pl-2 sm:pl-4 lg:pl-0">
               <p
@@ -332,7 +338,7 @@ export default function Home() {
                 {activeFoodName}
               </p>
               <Button
-                onClick={() => window.location.href = '/explore'}
+                onClick={() => window.location.href = '/menu'}
                 className="px-6 sm:px-8 lg:px-10 py-2.5 sm:py-3 lg:py-4 text-sm sm:text-base lg:text-xl bg-primary text-primary-foreground rounded-full hover:bg-primary/90 transition-all duration-300 font-['Playfair_Display']"
               >
                 View More
@@ -346,6 +352,7 @@ export default function Home() {
                   src="/round dining table top.png"
                   alt="Dining table"
                   fill
+                  priority
                   className="object-contain drop-shadow-2xl"
                 />
                 {/* All food items rotating as a group */}
@@ -373,6 +380,7 @@ export default function Home() {
                           src={item.src}
                           alt={item.name}
                           fill
+                          priority
                           className="object-contain rounded-full"
                         />
                       </div>
