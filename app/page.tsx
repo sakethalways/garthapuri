@@ -344,20 +344,22 @@ export default function Home() {
           {/* Dining Table with Food Carousel — unified for all screen sizes */}
           <div id="menu-dining-table" className="relative flex flex-row items-center min-h-[300px] sm:min-h-[360px] md:min-h-[420px] lg:min-h-0 lg:justify-between lg:gap-4">
             {/* Left: food name + View More button */}
-            <div className="flex flex-col items-start gap-3 sm:gap-4 lg:gap-5 z-10 flex-1 max-w-[45%] sm:max-w-[50%] lg:max-w-none pl-2 sm:pl-4 lg:pl-0">
-              <div
-                ref={foodNameLabelRef}
-                className="opacity-0 min-h-[4.5em] sm:min-h-[6em] lg:min-h-[7em] flex flex-col gap-0.5 sm:gap-1.5 lg:gap-2"
-              >
-                <p className="text-lg sm:text-2xl md:text-3xl lg:text-5xl xl:text-6xl font-['Playfair_Display'] font-bold text-primary leading-tight">
-                  {activeFoodName}
-                </p>
-                <p className="text-[11px] sm:text-sm md:text-lg lg:text-xl xl:text-2xl font-['Playfair_Display'] italic text-[#D37B31]">
-                  {activeCaption}
-                </p>
-                <p className="text-[10px] sm:text-xs md:text-base lg:text-lg xl:text-xl text-muted-foreground mt-0.5 sm:mt-1">
-                  &ldquo;{activeDialogue}&rdquo;
-                </p>
+            <div className="flex flex-col items-start z-10 flex-1 max-w-[45%] sm:max-w-[50%] lg:max-w-none pl-2 sm:pl-4 lg:pl-0">
+              <div className="relative h-[140px] sm:h-[160px] md:h-[180px] lg:h-[220px] xl:h-[250px] w-full">
+                <div
+                  ref={foodNameLabelRef}
+                  className="opacity-0 absolute top-0 left-0 flex flex-col gap-0.5 sm:gap-1.5 lg:gap-2"
+                >
+                  <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-['Playfair_Display'] font-bold text-primary leading-tight">
+                    {activeFoodName}
+                  </p>
+                  <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-['Playfair_Display'] italic text-[#D37B31]">
+                    {activeCaption}
+                  </p>
+                  <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-muted-foreground mt-0.5 sm:mt-1">
+                    &ldquo;{activeDialogue}&rdquo;
+                  </p>
+                </div>
               </div>
               <Link href="/menu" prefetch={true}>
                 <Button
