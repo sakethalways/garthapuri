@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 export function FooterClient() {
   return (
-    <footer className="bg-primary text-background">
+    <footer className="bg-gradient-to-br from-[#6b2e00] via-[#8d3c02] to-[#5a2800] text-[#f5e9d9]">
       
       {/* Footer Content */}
       <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 pt-6 sm:pt-8 md:pt-10 lg:pt-14 pb-2 sm:pb-3">
@@ -59,7 +59,7 @@ export function FooterClient() {
         </div>
 
         {/* Footer Bottom */}
-        <div className="text-center text-xs sm:text-sm opacity-90 space-y-1 pt-3 sm:pt-4 border-t border-background/20 relative">
+        <div className="text-center text-xs sm:text-sm opacity-90 space-y-1 pt-3 sm:pt-4 border-t border-[#d4af37]/30 relative">
           <div className="absolute -right-4 sm:-right-6 -top-32 sm:-top-44 md:-top-52 lg:-top-56 hidden sm:block">
             <Image
               src="/footer image.png"

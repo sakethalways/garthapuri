@@ -103,7 +103,7 @@ function LayoutClientContent() {
   return (
     <>
       {/* Liquid Glass Header */}
-      <nav className="sticky top-0 z-50 backdrop-blur-2xl bg-background/40 border-b border-secondary/20">
+      <nav className="sticky top-0 z-50 backdrop-blur-2xl bg-[#f5e9d9]/70 border-b border-[#d4af37]/25 shadow-[0_1px_8px_rgba(212,175,55,0.08)]">
         <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 py-0.5 sm:py-1">
           <div className="flex items-center justify-between gap-3 sm:gap-4 relative">
             {/* Logo Section */}
@@ -177,7 +177,7 @@ function LayoutClientContent() {
 
             {/* Center Navigation Container - Liquid Glass Effect */}
             <div className="absolute left-1/2 transform -translate-x-1/2">
-              <div className="hidden md:flex items-center gap-4 lg:gap-6 px-6 lg:px-8 py-1.5 lg:py-2 rounded-full backdrop-blur-xl bg-white/10 border border-white/20 shadow-lg">
+              <div className="hidden md:flex items-center gap-4 lg:gap-6 px-6 lg:px-8 py-1.5 lg:py-2 rounded-full backdrop-blur-xl bg-[#faf4eb]/40 border border-[#d4af37]/20 shadow-[0_2px_12px_rgba(141,60,2,0.08)]">
                 <Link href="/" className="text-xs lg:text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
                   Home
                 </Link>
@@ -230,7 +230,7 @@ function LayoutClientContent() {
           {/* Menu Panel - slides from top */}
           <div
             ref={overlayRef}
-            className="absolute top-0 left-0 right-0 bg-gradient-to-b from-background via-background to-background/95 shadow-2xl border-b-2 border-secondary/30 pt-8 pb-6 px-5 overflow-hidden"
+            className="absolute top-0 left-0 right-0 bg-gradient-to-b from-[#f5e9d9] via-[#f8efe3] to-[#f0ddc8]/95 shadow-2xl border-b-2 border-[#d4af37]/30 pt-8 pb-6 px-5 overflow-hidden"
           >
             <div className="relative flex flex-col items-center gap-1">
               {/* Nav links area with chakra background */}
@@ -293,7 +293,7 @@ function LayoutClientContent() {
                       menu?.scrollIntoView({ behavior: 'smooth' })
                     }, 400)
                   }}
-                  className="bg-primary hover:bg-primary/90 text-background font-['Playfair_Display'] font-semibold text-sm px-10 py-2.5 rounded-full shadow-lg hover:shadow-xl transition-all"
+                  className="bg-gradient-to-r from-[#8d3c02] via-[#a84e10] to-[#D37B31] hover:from-[#7a3301] hover:to-[#c06a20] text-white font-['Playfair_Display'] font-semibold text-sm px-10 py-2.5 rounded-full shadow-lg hover:shadow-xl transition-all"
                 >
                   Order Now
                 </Button>

@@ -68,7 +68,7 @@ export default function ExplorePage() {
       })
 
       renderer.setSize(window.innerWidth, window.innerHeight)
-      renderer.setClearColor(0xfaf8f5, 0.1)
+      renderer.setClearColor(0xf5e9d9, 0.1)
 
       // Create particles
       const particlesGeometry = new THREE.BufferGeometry()
@@ -208,7 +208,7 @@ export default function ExplorePage() {
   }, [])
 
   return (
-    <div className="bg-gradient-to-b from-[#faf8f5] via-[#fefdfb] to-[#faf8f5]">
+    <div className="bg-gradient-to-b from-[#f5e9d9] via-[#faf4eb] to-[#f5e9d9]">
       {/* Three.js Canvas Background */}
       <canvas
         ref={canvasRef}
@@ -216,7 +216,7 @@ export default function ExplorePage() {
       />
 
       {/* Header with Logo - Scrolls with page */}
-      <div className="py-2 sm:py-3 md:py-4 lg:py-6 bg-gradient-to-b from-[#faf8f5] via-[#fefdfb] to-transparent">
+      <div className="py-2 sm:py-3 md:py-4 lg:py-6 bg-gradient-to-b from-[#f5e9d9] via-[#faf4eb] to-transparent">
         <div className="flex justify-center" ref={headerLogoRef} style={{ opacity: 0 }}>
           <Image
             src="/endsides logo.png"

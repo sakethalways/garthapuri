@@ -46,7 +46,7 @@ function ProductCard({ product }: { product: typeof products[0] }) {
   }
 
   return (
-    <div className="bg-card rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 animate-[fadeSlideUp_0.5s_ease-out_both]">
+    <div className="bg-gradient-to-b from-[#faf4eb] to-[#f5e9d9] rounded-2xl overflow-hidden shadow-md hover:shadow-[0_8px_24px_rgba(141,60,2,0.12)] transition-all duration-300 animate-[fadeSlideUp_0.5s_ease-out_both] border border-[#d4af37]/10">
       {/* Image carousel */}
       <div
         className="relative w-full aspect-[3/4] overflow-hidden cursor-grab active:cursor-grabbing"
@@ -115,7 +115,7 @@ function ProductCard({ product }: { product: typeof products[0] }) {
         </p>
         <Button
           onClick={handleWhatsAppRedirect}
-          className="mt-1 px-4 sm:px-6 py-2 sm:py-2.5 text-xs sm:text-sm bg-primary text-primary-foreground rounded-full hover:bg-primary/90 transition-all duration-300 font-['Playfair_Display'] hover:scale-105"
+          className="mt-1 px-4 sm:px-6 py-2 sm:py-2.5 text-xs sm:text-sm bg-gradient-to-r from-[#8d3c02] to-[#D37B31] hover:from-[#7a3301] hover:to-[#c06a20] text-white rounded-full transition-all duration-300 font-['Playfair_Display'] hover:scale-105 shadow-sm hover:shadow-md"
         >
           Order Now
         </Button>

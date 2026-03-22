@@ -10,10 +10,10 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 const foodItems = [
-  { src: '/chicken biryani.png', name: 'Chicken Biryani' },
-  { src: '/salad.png', name: 'Fresh Salad' },
-  { src: '/snacks.png', name: 'Snacks Platter' },
-  { src: '/sunundalu.png', name: 'Sunundalu' },
+  { src: '/chicken biryani.png', name: 'Chicken Biryani', caption: 'Aromatic & Flavorful', dialogue: 'Slow-cooked to perfection' },
+  { src: '/salad.png', name: 'Fresh Salad', caption: 'Crisp & Wholesome', dialogue: 'Farm-fresh goodness' },
+  { src: '/snacks.png', name: 'Snacks Platter', caption: 'Crunchy & Spicy', dialogue: 'Perfect tea-time treat' },
+  { src: '/sunundalu.png', name: 'Sunundalu', caption: 'Traditional Sweet', dialogue: 'Grandma\'s secret recipe' },
 ]
 
 export default function Home() {
@@ -21,8 +21,10 @@ export default function Home() {
   const tableRef = useRef<HTMLDivElement>(null)
   const foodRingRef = useRef<HTMLDivElement>(null)
   const foodItemRefs = useRef<(HTMLDivElement | null)[]>([])
-  const foodNameLabelRef = useRef<HTMLParagraphElement>(null)
+  const foodNameLabelRef = useRef<HTMLDivElement>(null)
   const [activeFoodName, setActiveFoodName] = useState('')
+  const [activeCaption, setActiveCaption] = useState('')
+  const [activeDialogue, setActiveDialogue] = useState('')
 
 
   // Hero animation refs
@@ -152,12 +154,18 @@ export default function Home() {
         tl.to(foodItemRefs.current.filter(Boolean), { rotation: -cumRotation, duration: 0.9, ease: 'power2.inOut' }, '<')
       }
 
-      tl.call(() => setActiveFoodName(itemName))
-      tl.fromTo(foodNameLabelRef.current, { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.35, ease: 'power2.out' })
+      tl.call(() => {
+        setActiveFoodName(itemName)
+        setActiveCaption(foodItems[itemIndex].caption)
+        setActiveDialogue(foodItems[itemIndex].dialogue)
+      })
+      // Name + caption + dialogue fade in smoothly
+      tl.fromTo(foodNameLabelRef.current, { opacity: 0 }, { opacity: 1, duration: 0.5, ease: 'power2.out' })
       tl.to(foodItemRefs.current[itemIndex], { scale: 1.25, duration: 0.35, ease: 'power2.out' }, '<')
       tl.to({}, { duration: 1.3 })
       tl.to(foodItemRefs.current[itemIndex], { scale: 1, duration: 0.25, ease: 'power2.in' })
-      tl.to(foodNameLabelRef.current, { opacity: 0, x: -20, duration: 0.25, ease: 'power2.in' }, '<')
+      // Fade out smoothly
+      tl.to(foodNameLabelRef.current, { opacity: 0, duration: 0.4, ease: 'power2.in' }, '<')
     }
 
     runStep(0)
@@ -196,7 +204,7 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-background via-background to-card/20 -mt-14 sm:-mt-24 pb-0 sm:pb-16 md:pb-20 lg:pb-24">
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#f5e9d9] via-[#f8efe3] to-[#f0ddc8] -mt-14 sm:-mt-24 pb-0 sm:pb-16 md:pb-20 lg:pb-24">
           <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 flex flex-col items-center justify-center gap-0 relative min-h-[calc(100svh-3.5rem)] sm:h-screen pt-0 sm:pt-20 md:pt-24">
 
             {/* === MOBILE: Flow layout for chakra + logo === */}
@@ -293,10 +301,10 @@ export default function Home() {
 
               {/* CTA Buttons */}
               <div ref={heroButtonsRef} data-hero-text className="flex flex-row gap-3 sm:gap-4 mt-6 mb-8 sm:mt-2 sm:mb-0">
-                <Button onClick={scrollToMenu} size="lg" className="bg-primary hover:bg-primary/90 text-background font-bold shadow-lg hover:shadow-2xl transition-all px-6 sm:px-8 md:px-10 lg:px-12 text-sm sm:text-base lg:text-lg hover:scale-105 rounded-full font-['Playfair_Display']">
+                <Button onClick={scrollToMenu} size="lg" className="bg-gradient-to-r from-[#8d3c02] via-[#a84e10] to-[#D37B31] hover:from-[#7a3301] hover:to-[#c06a20] text-white font-bold shadow-lg hover:shadow-2xl transition-all px-6 sm:px-8 md:px-10 lg:px-12 text-sm sm:text-base lg:text-lg hover:scale-105 rounded-full font-['Playfair_Display']">
                   Order Now
                 </Button>
-                <Button onClick={scrollToMenu} size="lg" variant="outline" className="border-2 border-primary text-primary hover:bg-primary hover:text-background font-bold transition-all px-6 sm:px-8 md:px-10 lg:px-12 text-sm sm:text-base lg:text-lg hover:scale-105 rounded-full font-['Playfair_Display']">
+                <Button onClick={scrollToMenu} size="lg" variant="outline" className="border-2 border-[#D37B31] text-[#8d3c02] hover:bg-gradient-to-r hover:from-[#8d3c02] hover:to-[#D37B31] hover:text-white hover:border-transparent font-bold transition-all px-6 sm:px-8 md:px-10 lg:px-12 text-sm sm:text-base lg:text-lg hover:scale-105 rounded-full font-['Playfair_Display']">
                   View Menu
                 </Button>
               </div>
@@ -305,7 +313,16 @@ export default function Home() {
         </section>
 
       {/* Menu Highlights Section */}
-      <section id="menu-highlights" ref={menuSectionRef} className="bg-gradient-to-b from-[#d4af37]/20 to-[#d4af37]/10 py-8 sm:py-12 md:py-16 lg:py-20 overflow-hidden">
+      <section id="menu-highlights" ref={menuSectionRef} className="bg-gradient-to-bl from-[#c49a5c]/35 via-[#dcc198]/50 to-[#e8d4b8]/70 py-8 sm:py-12 md:py-16 lg:py-20 overflow-hidden relative">
+        {/* Stronger warm vignette from top-right */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(141,60,2,0.14)_0%,rgba(196,154,92,0.06)_40%,transparent_70%)] pointer-events-none" />
+        {/* Warm glow at bottom-left */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(212,175,55,0.12)_0%,rgba(211,123,49,0.06)_35%,transparent_65%)] pointer-events-none" />
+        {/* Traditional repeating pattern overlay */}
+        <div className="absolute inset-0 pointer-events-none opacity-[0.035]" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%238d3c02'%3E%3Ccircle cx='40' cy='40' r='18' fill='none' stroke='%238d3c02' stroke-width='1'/%3E%3Ccircle cx='40' cy='40' r='10' fill='none' stroke='%238d3c02' stroke-width='0.8'/%3E%3Ccircle cx='40' cy='40' r='3' fill='%238d3c02'/%3E%3Cpath d='M40 22 L44 30 L40 28 L36 30Z' fill='%238d3c02'/%3E%3Cpath d='M40 58 L44 50 L40 52 L36 50Z' fill='%238d3c02'/%3E%3Cpath d='M22 40 L30 36 L28 40 L30 44Z' fill='%238d3c02'/%3E%3Cpath d='M58 40 L50 36 L52 40 L50 44Z' fill='%238d3c02'/%3E%3C/g%3E%3C/svg%3E")`,
+          backgroundSize: '80px 80px',
+        }} />
         <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
           {/* Section Header */}
           <div className="text-center space-y-2 sm:space-y-3 mb-8 sm:mb-12 md:mb-16">
@@ -333,15 +350,23 @@ export default function Home() {
           <div id="menu-dining-table" className="relative flex flex-row items-center min-h-[300px] sm:min-h-[360px] md:min-h-[420px] lg:min-h-0 lg:justify-between lg:gap-4">
             {/* Left: food name + View More button */}
             <div className="flex flex-col items-start gap-3 sm:gap-4 lg:gap-5 z-10 flex-1 pl-2 sm:pl-4 lg:pl-0">
-              <p
+              <div
                 ref={foodNameLabelRef}
-                className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-['Playfair_Display'] font-bold text-primary opacity-0 min-h-[1.5em]"
+                className="opacity-0 min-h-[5em] sm:min-h-[6em] lg:min-h-[7em] flex flex-col gap-0.5 sm:gap-1.5 lg:gap-2"
               >
-                {activeFoodName}
-              </p>
+                <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-['Playfair_Display'] font-bold text-primary leading-tight">
+                  {activeFoodName}
+                </p>
+                <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-['Playfair_Display'] italic text-[#D37B31]">
+                  {activeCaption}
+                </p>
+                <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-muted-foreground mt-0.5 sm:mt-1">
+                  &ldquo;{activeDialogue}&rdquo;
+                </p>
+              </div>
               <Link href="/menu" prefetch={true}>
                 <Button
-                  className="px-6 sm:px-8 lg:px-10 py-2.5 sm:py-3 lg:py-4 text-sm sm:text-base lg:text-xl bg-primary text-primary-foreground rounded-full hover:bg-primary/90 transition-all duration-300 font-['Playfair_Display']"
+                  className="px-6 sm:px-8 lg:px-10 py-2.5 sm:py-3 lg:py-4 text-sm sm:text-base lg:text-xl bg-gradient-to-r from-[#8d3c02] via-[#a84e10] to-[#D37B31] hover:from-[#7a3301] hover:to-[#c06a20] text-white rounded-full transition-all duration-300 font-['Playfair_Display'] shadow-md hover:shadow-lg hover:scale-105"
                 >
                   View More
                 </Button>

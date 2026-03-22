@@ -68,9 +68,9 @@ export default function AboutPage() {
   }, [])
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-gradient-to-b from-[#faf8f5] via-[#fefdfb] to-[#faf8f5]">
+    <div ref={containerRef} className="min-h-screen bg-gradient-to-b from-[#f5e9d9] via-[#faf4eb] to-[#f5e9d9]">
       {/* Header & History Section - Combined */}
-      <section className="bg-gradient-to-b from-[#d4af37]/20 via-[#d4af37]/10 to-white/40 py-2 sm:py-3 md:py-4 lg:py-6">
+      <section className="bg-gradient-to-b from-[#d4af37]/15 via-[#f0ddc8]/60 to-transparent py-2 sm:py-3 md:py-4 lg:py-6">
         <div className="w-full px-4 sm:px-6 md:px-10 lg:px-20 xl:px-32 2xl:px-48">
           <div className="text-center space-y-1">
             <div data-about-header className="flex justify-center">
@@ -156,7 +156,7 @@ export default function AboutPage() {
       </section>
 
       {/* History Title Section */}
-      <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gradient-to-b from-white/40 to-[#d4af37]/10">
+      <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gradient-to-b from-transparent via-[#d4af37]/8 to-[#d4af37]/12">
         <div className="w-full px-4 sm:px-6 md:px-10 lg:px-20 xl:px-32 2xl:px-48">
           <div data-about-section className="max-w-4xl mx-auto text-center space-y-2 sm:space-y-3">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-['Playfair_Display'] font-bold text-[#8d3c02]">
@@ -186,7 +186,7 @@ export default function AboutPage() {
               { title: 'PERMANENCE', desc: 'Pillars of Ashoka representing moral solidity' },
               { title: 'THRESHOLD', desc: 'Elephant and arch marking transition to abundance' }
             ].map((element, index) => (
-              <div key={index} data-about-card className="bg-white rounded-xl p-4 sm:p-5 md:p-6 shadow-md border border-[#d4af37]/20 hover:shadow-lg transition-shadow">
+              <div key={index} data-about-card className="bg-gradient-to-br from-[#faf4eb] to-[#f5e9d9] rounded-xl p-4 sm:p-5 md:p-6 shadow-md border border-[#d4af37]/20 hover:shadow-[0_4px_20px_rgba(212,175,55,0.15)] transition-shadow">
                 <h3 className="text-lg sm:text-xl font-['Playfair_Display'] font-bold text-[#8d3c02] mb-1.5 sm:mb-2">
                   {element.title}
                 </h3>
@@ -200,7 +200,7 @@ export default function AboutPage() {
       </section>
 
       {/* Closing Statement */}
-      <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gradient-to-b from-[#d4af37]/10 to-[#d4af37]/20">
+      <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gradient-to-b from-[#d4af37]/10 to-[#f0ddc8]/50">
         <div className="w-full px-4 sm:px-6 md:px-10 lg:px-20 xl:px-32 2xl:px-48">
           <div data-about-closing className="max-w-3xl mx-auto text-center space-y-3 sm:space-y-4">
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-['Playfair_Display'] font-bold text-[#8d3c02]">
