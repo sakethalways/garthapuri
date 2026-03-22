@@ -206,7 +206,7 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#f5e9d9] via-[#f8efe3] to-[#f0ddc8] mt-0 sm:-mt-24 pb-0 sm:pb-16 md:pb-20 lg:pb-24">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#f5e9d9] via-[#f2e0cc] to-[#eddaba] mt-0 sm:-mt-24 pb-0 sm:pb-16 md:pb-20 lg:pb-24">
 
           {/* === MOBILE: Full-screen video hero === */}
           <div className="sm:hidden relative w-full h-[100svh]">
@@ -239,7 +239,7 @@ export default function Home() {
               <source src="/Video-164.mp4" type="video/mp4" />
             </video>
             {/* CTA buttons — fade in at 5.9s */}
-            <div className={`absolute bottom-6 left-0 right-0 flex justify-center gap-3 z-10 transition-opacity duration-700 ${showMobileButtons ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+            <div className={`absolute bottom-3 left-0 right-0 flex justify-center gap-3 z-10 transition-opacity duration-700 ${showMobileButtons ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
               <Button onClick={scrollToMenu} size="lg" className="bg-gradient-to-r from-[#8d3c02] via-[#a84e10] to-[#D37B31] hover:from-[#7a3301] hover:to-[#c06a20] text-white font-bold shadow-lg hover:shadow-2xl transition-all px-6 text-sm hover:scale-105 rounded-full font-['Playfair_Display']">
                 Order Now
               </Button>
@@ -247,6 +247,15 @@ export default function Home() {
                 View Menu
               </Button>
             </div>
+          </div>
+
+          {/* Desktop gradient overlays — gold & red warmth (on section level) */}
+          <div className="hidden sm:block absolute inset-0 pointer-events-none">
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(212,175,55,0.15)_0%,transparent_50%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(207,32,47,0.08)_0%,rgba(211,123,49,0.05)_30%,transparent_60%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(211,123,49,0.1)_0%,transparent_45%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(212,175,55,0.1)_0%,rgba(207,32,47,0.04)_35%,transparent_55%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(245,233,217,0.6)_0%,rgba(245,233,217,0)_40%)]" />
           </div>
 
           <div className="hidden sm:flex w-full px-4 sm:px-6 md:px-8 lg:px-10 flex-col items-center justify-center gap-0 relative sm:h-screen pt-0 sm:pt-20 md:pt-24">
