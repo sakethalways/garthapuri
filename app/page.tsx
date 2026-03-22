@@ -367,7 +367,8 @@ export default function Home() {
                   alt="Dining table"
                   fill
                   priority
-                  className="object-contain drop-shadow-2xl"
+                  className="object-contain"
+                  style={{ filter: 'drop-shadow(0 20px 40px rgba(44, 36, 22, 0.35)) drop-shadow(0 8px 16px rgba(141, 60, 2, 0.15))' }}
                 />
                 {/* All food items rotating as a group */}
                 <div
