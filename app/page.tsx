@@ -10,7 +10,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 const foodItems = [
-  { src: '/chicken biryani.png', name: 'Chicken\nBiryani', caption: 'Aromatic & Flavorful', dialogue: 'Slow-cooked to perfection' },
+  { src: '/chicken biryani.png', name: 'Chicken Biryani', caption: 'Aromatic & Flavorful', dialogue: 'Slow-cooked to perfection' },
   { src: '/salad.png', name: 'Fresh Salad', caption: 'Crisp & Wholesome', dialogue: 'Farm-fresh goodness' },
   { src: '/snacks.png', name: 'Snacks Platter', caption: 'Crunchy & Spicy', dialogue: 'Perfect tea-time treat' },
   { src: '/sunundalu.png', name: 'Sunundalu', caption: 'Traditional Sweet', dialogue: 'Grandma\'s secret recipe' },
@@ -349,8 +349,10 @@ export default function Home() {
                 ref={foodNameLabelRef}
                 className="opacity-0 flex flex-col gap-0.5 sm:gap-1 lg:gap-1.5"
               >
-                <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-['Playfair_Display'] font-bold text-primary leading-tight whitespace-pre-line">
-                  {activeFoodName}
+                <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-['Playfair_Display'] font-bold text-primary leading-tight sm:whitespace-nowrap">
+                  {activeFoodName.includes(' ') ? (
+                    <>{activeFoodName.split(' ')[0]}<br className="sm:hidden" />{' '}{activeFoodName.split(' ').slice(1).join(' ')}</>
+                  ) : activeFoodName}
                 </p>
                 <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-['Playfair_Display'] italic text-[#D37B31] whitespace-nowrap">
                   {activeCaption}

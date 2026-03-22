@@ -46,7 +46,7 @@ function ProductCard({ product }: { product: typeof products[0] }) {
   }
 
   return (
-    <div className="bg-gradient-to-b from-[#faf4eb] to-[#f5e9d9] rounded-2xl overflow-hidden shadow-md hover:shadow-[0_8px_24px_rgba(141,60,2,0.12)] transition-all duration-300 animate-[fadeSlideUp_0.5s_ease-out_both] border border-[#d4af37]/10">
+    <div className="bg-gradient-to-b from-[#faf4eb] via-[#f8f0e4] to-[#f0e2d0] rounded-2xl overflow-hidden shadow-[0_4px_16px_rgba(141,60,2,0.1),0_1px_4px_rgba(44,24,16,0.08)] hover:shadow-[0_12px_32px_rgba(141,60,2,0.16),0_4px_8px_rgba(212,175,55,0.1)] transition-all duration-300 animate-[fadeSlideUp_0.5s_ease-out_both] border border-[#d4af37]/15 hover:-translate-y-1">
       {/* Image carousel */}
       <div
         className="relative w-full aspect-[3/4] overflow-hidden cursor-grab active:cursor-grabbing"
@@ -126,8 +126,13 @@ function ProductCard({ product }: { product: typeof products[0] }) {
 
 export default function MenuPage() {
   return (
-    <section className="min-h-screen bg-background pt-4 sm:pt-6 md:pt-8 pb-10 sm:pb-14 md:pb-16">
-      <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+    <section className="min-h-screen relative overflow-hidden pt-4 sm:pt-6 md:pt-8 pb-10 sm:pb-14 md:pb-16 bg-gradient-to-b from-[#f5e9d9] via-[#f0ddc8] to-[#e8d4b8]">
+      {/* Warm depth overlays */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_center,rgba(212,175,55,0.08)_0%,transparent_50%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(141,60,2,0.06)_0%,transparent_55%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(212,175,55,0.05)_0%,transparent_45%)] pointer-events-none" />
+
+      <div className="relative z-10 w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
         {/* Page Header */}
         <div className="text-center space-y-1 sm:space-y-2 mb-6 sm:mb-8 md:mb-10 animate-[fadeSlideUp_0.5s_ease-out_both]">
           <div className="flex justify-center mb-1">
@@ -137,10 +142,10 @@ export default function MenuPage() {
               width={80}
               height={80}
               priority
-              className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain"
+              className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain drop-shadow-md"
             />
           </div>
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-['Playfair_Display'] font-bold text-primary">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-['Playfair_Display'] font-bold text-primary drop-shadow-sm">
             Our Menu
           </h1>
           <p className="text-xs sm:text-sm md:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed px-2">
