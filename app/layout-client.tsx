@@ -269,7 +269,7 @@ function LayoutClientContent() {
 
                 {/* Contact button */}
                 <button
-                  ref={(el) => { menuItemsRef.current[5] = el }}
+                  ref={(el) => { menuItemsRef.current[6] = el }}
                   onClick={() => {
                     closeMenu()
                     setTimeout(() => {
@@ -284,7 +284,7 @@ function LayoutClientContent() {
               </div>
 
               {/* Order Now CTA */}
-              <div ref={(el) => { menuItemsRef.current[7] = el }} className="mt-4">
+              <div ref={(el) => { menuItemsRef.current[8] = el }} className="mt-4">
                 <Button
                   onClick={() => {
                     closeMenu()
