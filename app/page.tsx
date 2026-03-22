@@ -25,6 +25,7 @@ export default function Home() {
   const [activeFoodName, setActiveFoodName] = useState('')
   const [activeCaption, setActiveCaption] = useState('')
   const [activeDialogue, setActiveDialogue] = useState('')
+  const [showMobileButtons, setShowMobileButtons] = useState(false)
 
 
   // Hero refs
@@ -211,20 +212,24 @@ export default function Home() {
           <div className="sm:hidden relative w-full h-[100svh]">
             <video
               ref={heroVideoRef}
+              autoPlay
               muted
               playsInline
               className="absolute inset-0 w-full h-full object-cover"
-              onLoadedMetadata={(e) => {
+              onCanPlay={(e) => {
                 const video = e.currentTarget
                 const hasPlayed = sessionStorage.getItem('hero-video-played')
                 if (hasPlayed) {
-                  // Revisit — show last frame
-                  video.currentTime = video.duration
+                  video.currentTime = video.duration || 9999
                   video.pause()
+                  setShowMobileButtons(true)
                 } else {
-                  // First visit — play at 1.25x
                   video.playbackRate = 1.25
-                  video.play()
+                }
+              }}
+              onTimeUpdate={(e) => {
+                if (!showMobileButtons && e.currentTarget.currentTime >= 5.9) {
+                  setShowMobileButtons(true)
                 }
               }}
               onEnded={() => {
@@ -233,6 +238,15 @@ export default function Home() {
             >
               <source src="/Video-164.mp4" type="video/mp4" />
             </video>
+            {/* CTA buttons — fade in at 5.9s */}
+            <div className={`absolute bottom-6 left-0 right-0 flex justify-center gap-3 z-10 transition-opacity duration-700 ${showMobileButtons ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+              <Button onClick={scrollToMenu} size="lg" className="bg-gradient-to-r from-[#8d3c02] via-[#a84e10] to-[#D37B31] hover:from-[#7a3301] hover:to-[#c06a20] text-white font-bold shadow-lg hover:shadow-2xl transition-all px-6 text-sm hover:scale-105 rounded-full font-['Playfair_Display']">
+                Order Now
+              </Button>
+              <Button onClick={scrollToMenu} size="lg" variant="outline" className="border-2 border-[#D37B31] text-[#D37B31] hover:bg-gradient-to-r hover:from-[#8d3c02] hover:to-[#D37B31] hover:text-white hover:border-transparent font-bold transition-all px-6 text-sm hover:scale-105 rounded-full font-['Playfair_Display'] bg-white/80 backdrop-blur-sm">
+                View Menu
+              </Button>
+            </div>
           </div>
 
           <div className="hidden sm:flex w-full px-4 sm:px-6 md:px-8 lg:px-10 flex-col items-center justify-center gap-0 relative sm:h-screen pt-0 sm:pt-20 md:pt-24">
