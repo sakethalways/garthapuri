@@ -344,7 +344,7 @@ export default function Home() {
           {/* Dining Table with Food Carousel — unified for all screen sizes */}
           <div id="menu-dining-table" className="relative flex flex-row items-center min-h-[300px] sm:min-h-[360px] md:min-h-[420px] lg:min-h-0 lg:justify-between lg:gap-4">
             {/* Left: food name + View More button */}
-            <div className="flex flex-col items-start z-10 flex-1 max-w-[45%] sm:max-w-[50%] lg:max-w-none pl-2 sm:pl-4 lg:pl-0">
+            <div className="flex flex-col items-start z-10 flex-1 max-w-[55%] sm:max-w-[55%] lg:max-w-none pl-2 sm:pl-4 lg:pl-0">
               <div className="relative h-[140px] sm:h-[160px] md:h-[180px] lg:h-[220px] xl:h-[250px] w-full">
                 <div
                   ref={foodNameLabelRef}
