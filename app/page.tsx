@@ -318,11 +318,6 @@ export default function Home() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(141,60,2,0.14)_0%,rgba(196,154,92,0.06)_40%,transparent_70%)] pointer-events-none" />
         {/* Warm glow at bottom-left */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(212,175,55,0.12)_0%,rgba(211,123,49,0.06)_35%,transparent_65%)] pointer-events-none" />
-        {/* Traditional repeating pattern overlay */}
-        <div className="absolute inset-0 pointer-events-none opacity-[0.035]" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%238d3c02'%3E%3Ccircle cx='40' cy='40' r='18' fill='none' stroke='%238d3c02' stroke-width='1'/%3E%3Ccircle cx='40' cy='40' r='10' fill='none' stroke='%238d3c02' stroke-width='0.8'/%3E%3Ccircle cx='40' cy='40' r='3' fill='%238d3c02'/%3E%3Cpath d='M40 22 L44 30 L40 28 L36 30Z' fill='%238d3c02'/%3E%3Cpath d='M40 58 L44 50 L40 52 L36 50Z' fill='%238d3c02'/%3E%3Cpath d='M22 40 L30 36 L28 40 L30 44Z' fill='%238d3c02'/%3E%3Cpath d='M58 40 L50 36 L52 40 L50 44Z' fill='%238d3c02'/%3E%3C/g%3E%3C/svg%3E")`,
-          backgroundSize: '80px 80px',
-        }} />
         <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
           {/* Section Header */}
           <div className="text-center space-y-2 sm:space-y-3 mb-8 sm:mb-12 md:mb-16">
@@ -349,18 +344,18 @@ export default function Home() {
           {/* Dining Table with Food Carousel — unified for all screen sizes */}
           <div id="menu-dining-table" className="relative flex flex-row items-center min-h-[300px] sm:min-h-[360px] md:min-h-[420px] lg:min-h-0 lg:justify-between lg:gap-4">
             {/* Left: food name + View More button */}
-            <div className="flex flex-col items-start gap-3 sm:gap-4 lg:gap-5 z-10 flex-1 pl-2 sm:pl-4 lg:pl-0">
+            <div className="flex flex-col items-start gap-3 sm:gap-4 lg:gap-5 z-10 flex-1 max-w-[45%] sm:max-w-[50%] lg:max-w-none pl-2 sm:pl-4 lg:pl-0">
               <div
                 ref={foodNameLabelRef}
-                className="opacity-0 min-h-[5em] sm:min-h-[6em] lg:min-h-[7em] flex flex-col gap-0.5 sm:gap-1.5 lg:gap-2"
+                className="opacity-0 min-h-[4.5em] sm:min-h-[6em] lg:min-h-[7em] flex flex-col gap-0.5 sm:gap-1.5 lg:gap-2"
               >
-                <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-['Playfair_Display'] font-bold text-primary leading-tight">
+                <p className="text-lg sm:text-2xl md:text-3xl lg:text-5xl xl:text-6xl font-['Playfair_Display'] font-bold text-primary leading-tight">
                   {activeFoodName}
                 </p>
-                <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-['Playfair_Display'] italic text-[#D37B31]">
+                <p className="text-[11px] sm:text-sm md:text-lg lg:text-xl xl:text-2xl font-['Playfair_Display'] italic text-[#D37B31]">
                   {activeCaption}
                 </p>
-                <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-muted-foreground mt-0.5 sm:mt-1">
+                <p className="text-[10px] sm:text-xs md:text-base lg:text-lg xl:text-xl text-muted-foreground mt-0.5 sm:mt-1">
                   &ldquo;{activeDialogue}&rdquo;
                 </p>
               </div>
