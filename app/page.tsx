@@ -211,13 +211,24 @@ export default function Home() {
           <div className="sm:hidden relative w-full h-[100svh]">
             <video
               ref={heroVideoRef}
-              autoPlay
               muted
               playsInline
               className="absolute inset-0 w-full h-full object-cover"
               onLoadedMetadata={(e) => {
                 const video = e.currentTarget
-                video.playbackRate = 1.25
+                const hasPlayed = sessionStorage.getItem('hero-video-played')
+                if (hasPlayed) {
+                  // Revisit — show last frame
+                  video.currentTime = video.duration
+                  video.pause()
+                } else {
+                  // First visit — play at 1.25x
+                  video.playbackRate = 1.25
+                  video.play()
+                }
+              }}
+              onEnded={() => {
+                sessionStorage.setItem('hero-video-played', 'true')
               }}
             >
               <source src="/Video-164.mp4" type="video/mp4" />

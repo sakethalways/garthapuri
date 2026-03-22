@@ -104,15 +104,15 @@ function LayoutClientContent() {
     <>
       {/* Floating mobile menu button — no header bar */}
       <button
-        className="sm:hidden fixed top-3 right-3 z-[60] inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/70 backdrop-blur-md shadow-lg border border-[#d4af37]/20 transition-all"
+        className="sm:hidden fixed top-3 right-3 z-[60] inline-flex items-center justify-center p-1 transition-all"
         onClick={() => mobileMenuOpen ? closeMenu() : openMenu()}
         aria-label="Toggle menu"
       >
         <span className={`transition-all duration-300 ${mobileMenuOpen ? 'rotate-90 scale-110' : 'rotate-0 scale-100'}`}>
           {mobileMenuOpen ? (
-            <X className="h-5 w-5 text-primary" />
+            <X className="h-6 w-6 text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.5)]" />
           ) : (
-            <Menu className="h-5 w-5 text-primary" />
+            <Menu className="h-6 w-6 text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.5)]" />
           )}
         </span>
       </button>
