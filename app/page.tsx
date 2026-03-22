@@ -27,7 +27,8 @@ export default function Home() {
   const [activeDialogue, setActiveDialogue] = useState('')
 
 
-  // Hero animation refs
+  // Hero refs
+  const heroVideoRef = useRef<HTMLVideoElement>(null)
   const heroLogoMobileRef = useRef<HTMLDivElement>(null)
   const heroLogoDesktopRef = useRef<HTMLDivElement>(null)
   const heroTitleRef = useRef<HTMLDivElement>(null)
@@ -205,35 +206,25 @@ export default function Home() {
     <>
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-b from-[#f5e9d9] via-[#f8efe3] to-[#f0ddc8] -mt-14 sm:-mt-24 pb-0 sm:pb-16 md:pb-20 lg:pb-24">
-          <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 flex flex-col items-center justify-center gap-0 relative min-h-[calc(100svh-3.5rem)] sm:h-screen pt-0 sm:pt-20 md:pt-24">
 
-            {/* === MOBILE: Flow layout for chakra + logo === */}
-            <div className="flex sm:hidden flex-col items-center justify-center flex-1 w-full relative -mb-16">
-              <div className="relative flex items-center justify-center -my-10">
-                {/* Chakra — only rotates, no entrance animation */}
-                <div className="animate-rotate-slow opacity-60">
-                  <Image
-                    src="/chakra3.png"
-                    alt="Decorative chakra"
-                    width={1000}
-                    height={1000}
-                    priority
-                    className="w-[160vw] h-[160vw] max-w-[650px] max-h-[650px] object-contain"
-                  />
-                </div>
-                {/* Logo — pops out via GSAP */}
-                <div ref={heroLogoMobileRef} data-hero-logo className="absolute inset-0 flex items-center justify-center drop-shadow-lg">
-                  <Image
-                    src="/engtopb logo.png"
-                    alt="Garthapuri - The Spice Land of India"
-                    width={650}
-                    height={650}
-                    priority
-                    className="w-[115vw] h-[115vw] max-w-[500px] max-h-[500px] object-contain drop-shadow-2xl"
-                  />
-                </div>
-              </div>
-            </div>
+          {/* === MOBILE: Full-screen video hero === */}
+          <div className="sm:hidden relative w-full h-[100svh]">
+            <video
+              ref={heroVideoRef}
+              autoPlay
+              muted
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+              onLoadedMetadata={(e) => {
+                const video = e.currentTarget
+                video.playbackRate = 1.25
+              }}
+            >
+              <source src="/Video-164.mp4" type="video/mp4" />
+            </video>
+          </div>
+
+          <div className="hidden sm:flex w-full px-4 sm:px-6 md:px-8 lg:px-10 flex-col items-center justify-center gap-0 relative sm:h-screen pt-0 sm:pt-20 md:pt-24">
 
             {/* === DESKTOP: Absolute positioning === */}
             <div className="hidden sm:flex absolute inset-0 items-center justify-center pointer-events-none z-0">
@@ -285,8 +276,8 @@ export default function Home() {
             </div>
 
 
-            {/* Hero Content */}
-            <div className="relative z-10 w-full flex flex-col items-center gap-2 sm:gap-4 md:gap-5 pb-6 sm:pb-0 sm:mt-[304px] md:mt-[368px]">
+            {/* Hero Content — desktop only */}
+            <div className="relative z-10 w-full hidden sm:flex flex-col items-center gap-2 sm:gap-4 md:gap-5 pb-6 sm:pb-0 sm:mt-[304px] md:mt-[368px]">
               {/* Title */}
               <div ref={heroTitleRef} data-hero-text className="text-center max-w-4xl mx-auto px-4">
                 <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-['Playfair_Display'] font-bold text-primary leading-tight">

@@ -102,8 +102,23 @@ function LayoutClientContent() {
 
   return (
     <>
-      {/* Liquid Glass Header */}
-      <nav className="sticky top-0 z-50 backdrop-blur-2xl bg-[#f5e9d9]/70 border-b border-[#d4af37]/25 shadow-[0_1px_8px_rgba(212,175,55,0.08)]">
+      {/* Floating mobile menu button — no header bar */}
+      <button
+        className="sm:hidden fixed top-3 right-3 z-[60] inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/70 backdrop-blur-md shadow-lg border border-[#d4af37]/20 transition-all"
+        onClick={() => mobileMenuOpen ? closeMenu() : openMenu()}
+        aria-label="Toggle menu"
+      >
+        <span className={`transition-all duration-300 ${mobileMenuOpen ? 'rotate-90 scale-110' : 'rotate-0 scale-100'}`}>
+          {mobileMenuOpen ? (
+            <X className="h-5 w-5 text-primary" />
+          ) : (
+            <Menu className="h-5 w-5 text-primary" />
+          )}
+        </span>
+      </button>
+
+      {/* Desktop Header */}
+      <nav className="hidden sm:block sticky top-0 z-50 backdrop-blur-2xl bg-[#f5e9d9]/70 border-b border-[#d4af37]/25 shadow-[0_1px_8px_rgba(212,175,55,0.08)]">
         <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 py-0.5 sm:py-1">
           <div className="flex items-center justify-between gap-3 sm:gap-4 relative">
             {/* Logo Section */}
@@ -115,38 +130,12 @@ function LayoutClientContent() {
                   width={50}
                   height={50}
                   priority
-                  className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 object-contain"
+                  className="sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 object-contain"
                 />
-              </div>
-
-              {/* Mobile: 4-phase cycle with smaller text */}
-              <div className="relative w-36 h-9 flex sm:hidden items-center min-w-0 overflow-hidden">
-                <Image
-                  src="/logo name tel.png"
-                  alt="Garthapuri Telugu Logo"
-                  width={120}
-                  height={40}
-                  priority
-                  className="h-7 w-auto object-contain animate-cycle-logo-tel-m"
-                />
-                <span className="absolute text-[9px] font-['Playfair_Display'] font-thin italic text-[#8d3c02] tracking-wide whitespace-nowrap drop-shadow-lg animate-cycle-text-first-m">
-                  THE SPICE LAND OF INDIA
-                </span>
-                <Image
-                  src="/logo name eng.png"
-                  alt="Garthapuri English Logo"
-                  width={120}
-                  height={40}
-                  priority
-                  className="h-7 w-auto object-contain animate-cycle-logo-eng-m absolute"
-                />
-                <span className="absolute text-[9px] font-['Playfair_Display'] font-thin italic text-[#8d3c02] tracking-wide whitespace-nowrap drop-shadow-lg animate-cycle-text-second-m">
-                  THE SPICE LAND OF INDIA
-                </span>
               </div>
 
               {/* Desktop: 4-phase cycle with text */}
-              <div className="relative hidden sm:flex sm:w-48 md:w-56 lg:w-64 h-12 md:h-13 lg:h-14 items-center min-w-0 overflow-hidden">
+              <div className="relative sm:flex sm:w-48 md:w-56 lg:w-64 h-12 md:h-13 lg:h-14 items-center min-w-0 overflow-hidden">
                 <Image
                   src="/logo name tel.png"
                   alt="Garthapuri Telugu Logo"
@@ -198,21 +187,6 @@ function LayoutClientContent() {
                 </button>
               </div>
             </div>
-
-            {/* Mobile Menu Button */}
-            <button
-              className="md:hidden relative z-[60] inline-flex items-center justify-center w-9 h-9 hover:bg-secondary/20 transition-colors rounded-full"
-              onClick={() => mobileMenuOpen ? closeMenu() : openMenu()}
-              aria-label="Toggle menu"
-            >
-              <span className={`transition-all duration-300 ${mobileMenuOpen ? 'rotate-90 scale-110' : 'rotate-0 scale-100'}`}>
-                {mobileMenuOpen ? (
-                  <X className="h-5 w-5 text-primary" />
-                ) : (
-                  <Menu className="h-5 w-5 text-primary" />
-                )}
-              </span>
-            </button>
           </div>
         </div>
       </nav>
