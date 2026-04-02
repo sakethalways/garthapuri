@@ -34,6 +34,7 @@ export default function Home() {
   const mobileCaptionRef = useRef<HTMLParagraphElement>(null)
   const mobileDialogueRef = useRef<HTMLParagraphElement>(null)
   const [showMobileButtons, setShowMobileButtons] = useState(false)
+  const [mobileVideoSkipped, setMobileVideoSkipped] = useState(false)
 
 
   // Hero refs
@@ -293,8 +294,9 @@ export default function Home() {
                 const video = e.currentTarget
                 const hasPlayed = sessionStorage.getItem('hero-video-played')
                 if (hasPlayed) {
-                  video.currentTime = video.duration || 9999
                   video.pause()
+                  video.style.display = 'none'
+                  setMobileVideoSkipped(true)
                   setShowMobileButtons(true)
                 } else {
                   video.playbackRate = 1.25
@@ -311,6 +313,21 @@ export default function Home() {
             >
               <source src="/Video-164.mp4" type="video/mp4" />
             </video>
+
+            {/* Static fallback — replaces video on revisit */}
+            {mobileVideoSkipped && (
+              <div className="absolute inset-0 bg-[#f5e9d9] flex flex-col items-center justify-center px-6 z-[1]">
+                <Image
+                  src="/engtopb logo.png"
+                  alt="Garthapuri"
+                  width={400}
+                  height={400}
+                  priority
+                  className="w-52 h-52 object-contain drop-shadow-2xl"
+                />
+              </div>
+            )}
+
             {/* CTA buttons — fade in at 5.9s */}
             <div className={`absolute bottom-3 left-0 right-0 flex justify-center gap-3 z-10 transition-opacity duration-700 ${showMobileButtons ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
               <Button onClick={scrollToMenu} size="lg" className="bg-gradient-to-r from-[#8d3c02] via-[#a84e10] to-[#D37B31] hover:from-[#7a3301] hover:to-[#c06a20] text-white font-bold shadow-lg hover:shadow-2xl transition-all px-6 text-sm hover:scale-105 rounded-full font-['Playfair_Display']">
