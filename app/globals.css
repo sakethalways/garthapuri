@@ -3,6 +3,10 @@
 
 @custom-variant dark (&:is(.dark *));
 
+html, body {
+  overflow-x: hidden;
+}
+
 :root {
   /* Warm spice palette — peach-cream base, terracotta/orange primary, gold accents, Indian red highlights */
   --background: #f5e9d9;

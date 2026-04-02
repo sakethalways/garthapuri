@@ -104,7 +104,7 @@ function LayoutClientContent() {
     <>
       {/* Floating mobile menu button — no header bar */}
       <button
-        className="sm:hidden fixed top-3 right-3 z-[60] inline-flex items-center justify-center p-1 transition-all"
+        className="sm:hidden fixed top-4 right-4 z-[60] inline-flex items-center justify-center p-2 rounded-full bg-black/30 backdrop-blur-sm transition-all"
         onClick={() => mobileMenuOpen ? closeMenu() : openMenu()}
         aria-label="Toggle menu"
       >
@@ -179,12 +179,9 @@ function LayoutClientContent() {
                 <Link href="/about" className="text-xs lg:text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
                   About
                 </Link>
-                <button onClick={() => {
-                  const footer = document.querySelector('footer')
-                  footer?.scrollIntoView({ behavior: 'smooth' })
-                }} className="text-xs lg:text-sm font-medium text-foreground/80 hover:text-primary transition-colors cursor-pointer">
+                <Link href="/contact" className="text-xs lg:text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
                   Contact
-                </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -228,6 +225,7 @@ function LayoutClientContent() {
                   { href: '/menu', label: 'Menu' },
                   { href: '/explore', label: 'History' },
                   { href: '/about', label: 'About' },
+                  { href: '/contact', label: 'Contact' },
                 ].map((link, i) => (
                   <Link
                     key={link.href}
@@ -240,21 +238,6 @@ function LayoutClientContent() {
                     {link.label}
                   </Link>
                 ))}
-
-                {/* Contact button */}
-                <button
-                  ref={(el) => { menuItemsRef.current[6] = el }}
-                  onClick={() => {
-                    closeMenu()
-                    setTimeout(() => {
-                      const footer = document.querySelector('footer')
-                      footer?.scrollIntoView({ behavior: 'smooth' })
-                    }, 400)
-                  }}
-                  className="relative z-10 w-full max-w-xs py-2.5 text-center text-lg sm:text-base font-['Playfair_Display'] font-medium text-foreground/80 hover:text-primary rounded-xl hover:bg-primary/5 transition-all duration-200 tracking-wide cursor-pointer"
-                >
-                  Contact
-                </button>
               </div>
 
               {/* Order Now CTA */}

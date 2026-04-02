@@ -157,10 +157,42 @@ GARTHAPURI
 ANCIENT NAME OF GUNTUR
 
 
-The background in the first (light) version is a solid pale peach / warm light pinkish-beige color.
-Exact hex code for the background: #F5E9D9
-(This is a very close match to the soft, desaturated warm tone shown in the light/peach variant. It has subtle cream undertones typical of spice-themed Indian branding.)
-The second (dark) version uses a richer, deeper maroon / warm brick-red background.
-Exact hex code for the background: #8B2F2F to #A13F3F range, with the central / most prominent area being approximately #9C3A3A
-(This is a classic deep Indian red-maroon often used in traditional/spice branding, with a slight warm brownish undertone.)
-Regarding texture/gradien
+
+Element,Hex Code,Description
+Primary Deep Red,#7B2218,"The core ""Red Earth"" or Chili powder color."
+Shadow Tone,#4A140E,For gradients and depth.
+Highlight/Warmth,#A53F2B,"For areas where ""light"" hits the spice."
+
+
+. The CSS Implementation
+To get the exact look from the image, you shouldn't just use a solid background. You should use a linear gradient combined with a noise texture.
+
+.hero-right-section {
+  /* This creates a rich gradient from the center outwards */
+  background: radial-gradient(circle at center, #8B261D 0%, #4A140E 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* The Texture Overlay */
+.hero-right-section::before {
+  content: "";
+  position: absolute;
+  top: 0; 
+  left: 0;
+  width: 100%; 
+  height: 100%;
+  opacity: 0.05; /* Keep this very low for subtlety */
+  pointer-events: none;
+  background-image: url('https://www.transparenttextures.com/patterns/example.png'); 
+  /* Or use a 'concrete' or 'paper' texture for an earthy feel */
+}
+
+
+
+background-color: #8b261d;
+background-image: url("https://www.transparenttextures.com/patterns/classy-fabric.png");
+
+
+background-color: #8b261d;
+background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-dark.png");
