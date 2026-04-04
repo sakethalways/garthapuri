@@ -357,7 +357,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="hidden sm:flex w-full flex-col items-center justify-start relative h-full pt-[40px] md:pt-[50px]">
+          <div className="hidden sm:flex w-full flex-col items-center justify-center relative h-full pt-[160px] pb-[160px] md:pb-[220px] lg:pb-[280px] xl:pb-[340px]">
 
             {/* Logo — centered, pushed up */}
             <div ref={heroLogoDesktopRef} data-hero-logo className="z-20 drop-shadow-lg -mt-6 md:-mt-10">
@@ -367,19 +367,19 @@ export default function Home() {
                 width={650}
                 height={650}
                 priority
-                className="sm:w-[180px] sm:h-[180px] md:w-[240px] md:h-[240px] lg:w-[320px] lg:h-[320px] xl:w-[400px] xl:h-[400px] object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-300 hero-logo-responsive"
+                className="sm:w-[180px] sm:h-[180px] md:w-[240px] md:h-[240px] lg:w-[320px] lg:h-[320px] xl:w-[400px] xl:h-[400px] 2xl:w-[480px] 2xl:h-[480px] object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-300 hero-logo-responsive"
               />
             </div>
 
             {/* Text + Buttons — below logo, centered */}
             <div className="flex flex-col items-center gap-1 md:gap-1.5 z-20 -mt-16 md:-mt-20">
               <div ref={heroTitleRef} data-hero-text>
-                <h1 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-['Playfair_Display'] font-bold text-primary leading-[1.1] text-center drop-shadow-[0_2px_4px_rgba(141,60,2,0.15)]">
+                <h1 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-['Playfair_Display'] font-bold text-primary leading-[1.1] text-center drop-shadow-[0_2px_4px_rgba(141,60,2,0.15)]">
                   Where Every Element Has A Story
                 </h1>
               </div>
               <div className="w-16 md:w-20 h-[3px] bg-gradient-to-r from-[#D37B31] to-[#d4af37] rounded-full" />
-              <p ref={heroSubtitleRef} data-hero-text className="text-xs md:text-sm lg:text-base text-muted-foreground leading-relaxed max-w-lg text-center drop-shadow-[0_1px_2px_rgba(141,60,2,0.1)]">
+              <p ref={heroSubtitleRef} data-hero-text className="text-xs md:text-sm lg:text-base xl:text-lg 2xl:text-xl text-muted-foreground leading-relaxed max-w-lg 2xl:max-w-xl text-center drop-shadow-[0_1px_2px_rgba(141,60,2,0.1)]">
                 Experience authentic Indian cuisine rooted in ancient traditions, crafted with devotion and unhurried quality.
               </p>
               <div ref={heroButtonsRef} data-hero-text className="flex flex-row gap-3 sm:gap-4 mt-1">
