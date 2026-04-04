@@ -357,29 +357,29 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="hidden sm:flex w-full pl-6 sm:pl-8 md:pl-12 lg:pl-16 xl:pl-24 pr-4 sm:pr-6 md:pr-8 lg:pr-10 flex-row items-start justify-center gap-4 lg:gap-8 relative h-full pt-[80px] md:pt-[100px]">
+          <div className="hidden sm:flex w-full flex-col items-center justify-start relative h-full pt-[40px] md:pt-[50px]">
 
-            {/* Logo — absolute center of screen */}
-            <div ref={heroLogoDesktopRef} data-hero-logo className="absolute z-20 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 drop-shadow-lg">
+            {/* Logo — centered, pushed up */}
+            <div ref={heroLogoDesktopRef} data-hero-logo className="z-20 drop-shadow-lg -mt-6 md:-mt-10">
               <Image
                 src="/engtopb logo.png"
                 alt="Garthapuri - The Spice Land of India"
                 width={650}
                 height={650}
                 priority
-                className="sm:w-[200px] sm:h-[200px] md:w-[280px] md:h-[280px] lg:w-[380px] lg:h-[380px] xl:w-[500px] xl:h-[500px] object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-300"
+                className="sm:w-[180px] sm:h-[180px] md:w-[240px] md:h-[240px] lg:w-[320px] lg:h-[320px] xl:w-[400px] xl:h-[400px] object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-300"
               />
             </div>
 
-            {/* Right: Text + Buttons */}
-            <div className="flex-1 flex flex-col items-end gap-2 md:gap-3 lg:gap-4 z-20 pt-0 pr-0">
+            {/* Text + Buttons — below logo, centered */}
+            <div className="flex flex-col items-center gap-1 md:gap-1.5 z-20 -mt-16 md:-mt-20">
               <div ref={heroTitleRef} data-hero-text>
-                <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-['Playfair_Display'] font-bold text-primary leading-[1.1] text-right">
-                  Where Every<br />Element Has<br />A Story
+                <h1 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-['Playfair_Display'] font-bold text-primary leading-[1.1] text-center drop-shadow-[0_2px_4px_rgba(141,60,2,0.15)]">
+                  Where Every Element Has A Story
                 </h1>
               </div>
               <div className="w-16 md:w-20 h-[3px] bg-gradient-to-r from-[#D37B31] to-[#d4af37] rounded-full" />
-              <p ref={heroSubtitleRef} data-hero-text className="text-sm md:text-base lg:text-lg text-muted-foreground leading-relaxed max-w-md text-right">
+              <p ref={heroSubtitleRef} data-hero-text className="text-xs md:text-sm lg:text-base text-muted-foreground leading-relaxed max-w-lg text-center drop-shadow-[0_1px_2px_rgba(141,60,2,0.1)]">
                 Experience authentic Indian cuisine rooted in ancient traditions, crafted with devotion and unhurried quality.
               </p>
               <div ref={heroButtonsRef} data-hero-text className="flex flex-row gap-3 sm:gap-4 mt-1">
