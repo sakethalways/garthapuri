@@ -279,7 +279,7 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#f5e9d9] via-[#f2e0cc] to-[#eddaba] mt-0 sm:-mt-[60px] sm:h-[100svh]">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#f5e9d9] via-[#f2e0cc] to-[#eddaba] mt-0 sm:-mt-[60px] sm:h-[100svh] sm:min-h-[400px]">
 
           {/* === MOBILE: Full-screen video hero === */}
           <div className="sm:hidden relative w-full h-[100svh]">
@@ -367,7 +367,7 @@ export default function Home() {
                 width={650}
                 height={650}
                 priority
-                className="sm:w-[180px] sm:h-[180px] md:w-[240px] md:h-[240px] lg:w-[320px] lg:h-[320px] xl:w-[400px] xl:h-[400px] object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-300"
+                className="sm:w-[180px] sm:h-[180px] md:w-[240px] md:h-[240px] lg:w-[320px] lg:h-[320px] xl:w-[400px] xl:h-[400px] object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-300 hero-logo-responsive"
               />
             </div>
 
@@ -400,7 +400,7 @@ export default function Home() {
                 width={380}
                 height={380}
                 priority
-                className="w-48 md:w-56 lg:w-72 xl:w-96 h-auto object-contain"
+                className="w-48 md:w-56 lg:w-72 xl:w-96 h-auto object-contain hero-elephant-responsive"
               />
             </div>
 
@@ -411,7 +411,7 @@ export default function Home() {
             <svg
               viewBox="0 0 1440 320"
               preserveAspectRatio="none"
-              className="block w-full h-[200px] md:h-[280px] lg:h-[360px] xl:h-[440px]"
+              className="block w-full h-[200px] md:h-[280px] lg:h-[360px] xl:h-[440px] hero-wave-responsive"
             >
               <path
                 d="M0,40 C360,40 540,240 900,230 S1320,120 1440,140 L1440,320 L0,320 Z"

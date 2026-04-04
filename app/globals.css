@@ -143,6 +143,20 @@ html, body {
   transform: translateY(40px) !important;
 }
 
+/* Hero section — scale down on short viewports (landscape phones) */
+@media (max-height: 500px) and (min-width: 640px) {
+  .hero-logo-responsive {
+    max-height: 28svh !important;
+    max-width: 28svh !important;
+  }
+  .hero-wave-responsive {
+    max-height: 35svh !important;
+  }
+  .hero-elephant-responsive {
+    max-height: 22svh !important;
+  }
+}
+
 /* Lightweight CSS-only entrance animation for menu page (no GSAP overhead) */
 @keyframes fadeSlideUp {
   from { opacity: 0; transform: translateY(20px); }
