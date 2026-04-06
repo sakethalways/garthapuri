@@ -14,7 +14,7 @@ export function FooterClient() {
           {/* Brand Section */}
           <div className="flex flex-col items-center sm:items-start gap-1 sm:gap-0 sm:space-y-3 text-center sm:text-left">
             <Image
-              src="/main image.png"
+              src="/gold colour logo.png"
               alt="Garthapuri"
               width={100}
               height={100}
