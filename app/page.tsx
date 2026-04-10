@@ -375,12 +375,12 @@ export default function Home() {
             <div className="flex flex-col items-center gap-1 md:gap-1.5 z-20 -mt-16 md:-mt-20">
               <div ref={heroTitleRef} data-hero-text>
                 <h1 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-['Playfair_Display'] font-bold text-primary leading-[1.1] text-center drop-shadow-[0_2px_4px_rgba(141,60,2,0.15)]">
-                  Where Every Element Has A Story
+                  Where Every Flavor Has a Legacy
                 </h1>
               </div>
               <div className="w-16 md:w-20 h-[3px] bg-gradient-to-r from-[#D37B31] to-[#d4af37] rounded-full" />
               <p ref={heroSubtitleRef} data-hero-text className="text-xs md:text-sm lg:text-base xl:text-lg 2xl:text-xl text-muted-foreground leading-relaxed max-w-lg 2xl:max-w-xl text-center drop-shadow-[0_1px_2px_rgba(141,60,2,0.1)]">
-                Experience authentic Indian cuisine rooted in ancient traditions, crafted with devotion and unhurried quality.
+                Slow-cooked traditions from the heart of Guntur<br />recipes that time refused to forget.
               </p>
               <div ref={heroButtonsRef} data-hero-text className="flex flex-row gap-3 sm:gap-4 mt-1">
                 <Button onClick={scrollToMenu} size="lg" className="bg-gradient-to-r from-[#8d3c02] via-[#a84e10] to-[#D37B31] hover:from-[#7a3301] hover:to-[#c06a20] text-white font-bold shadow-lg hover:shadow-2xl transition-all px-6 sm:px-8 md:px-10 lg:px-12 text-sm sm:text-base lg:text-lg hover:scale-105 rounded-full font-['Playfair_Display']">
