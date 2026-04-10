@@ -145,10 +145,6 @@ function LayoutClientContent() {
                   className="h-8 md:h-10 lg:h-11 w-auto object-contain animate-cycle-logo-tel"
                 />
 
-                <span className="absolute text-xs md:text-sm font-['Playfair_Display'] font-thin italic text-[#8d3c02] tracking-wide whitespace-nowrap drop-shadow-lg animate-cycle-text-first">
-                  THE SPICE LAND OF INDIA
-                </span>
-
                 <Image
                   src="/logo name eng.png"
                   alt="Garthapuri English Logo"
@@ -157,10 +153,6 @@ function LayoutClientContent() {
                   priority
                   className="h-8 md:h-10 lg:h-11 w-auto object-contain animate-cycle-logo-eng absolute"
                 />
-
-                <span className="absolute text-xs md:text-sm font-['Playfair_Display'] font-thin italic text-[#8d3c02] tracking-wide whitespace-nowrap drop-shadow-lg animate-cycle-text-second">
-                  THE SPICE LAND OF INDIA
-                </span>
               </div>
             </div>
 
